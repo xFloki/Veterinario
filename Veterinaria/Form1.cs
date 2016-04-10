@@ -23,9 +23,7 @@ namespace Veterinaria
         //variable que maneja la conexion
         private MySqlConnection conn;
         //consulta que quiero hacer a la base de datos
-        private String sentencia_SQL;
-        //variable que sirve para crear la conexion
-        private static MySqlCommand comando;
+        private String sentencia_SQL;      
         //guarda el resultado de la consultam, es un arrayList
         private MySqlDataReader resultado;
 
@@ -37,7 +35,7 @@ namespace Veterinaria
         public Form1()
         {
             InitializeComponent();
-
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -51,12 +49,23 @@ namespace Veterinaria
             conn = new MySqlConnection(connStr);
             //abre la conexion
             conn.Open();
-            MySqlDataAdapter sda = new MySqlDataAdapter("Select * from usuario where login='" + textBox1.Text + "' and pass='" + textBox2.Text + "'", conn);
+            //Reseteamos el valor de Datatable para poder aceptar más de una vez(en la practica no tiene mucho sentido amenos que exista la posibilidad de deslogearse)
+            datos.Clear();
+            MySqlDataAdapter sda = new MySqlDataAdapter("Select * from usuario where login='" + textBox1.Text + "' and pass='" + textBox2.Text + "';", conn);
             sda.Fill(datos);
             conn.Close();
             if (datos.Rows.Count == 1)
             {
                 MessageBox.Show("Bien");
+               MainForm contenido = new MainForm();
+                //lo llamo con this porque con Form1 no lo cosnigo 
+                this.Hide();
+                contenido.Show();
+
+
+
+
+
 
             }
             else {
