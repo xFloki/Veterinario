@@ -62,11 +62,6 @@ namespace Veterinaria
                 this.Hide();
                 contenido.Show();
 
-
-
-
-
-
             }
             else {
                 MessageBox.Show("Mal");
