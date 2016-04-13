@@ -28,9 +28,9 @@ namespace Veterinaria
         private string email;
         private string telefono;
         private string direccion;
-        private string fecha = "1993-11-16";
+        private string fecha;
 
-        public NewClient(DataGridView f)
+        public NewClient()
         {
             InitializeComponent();
         }
@@ -48,7 +48,7 @@ namespace Veterinaria
             email = textBox4.Text;
             telefono = textBox5.Text;
             direccion = textBox6.Text;
-
+            fecha = dateTimePicker1.Value.ToString("yyyy-MM-dd");
             connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
             conn = new MySqlConnection(connStr);
             //abre la conexion

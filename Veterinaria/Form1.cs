@@ -26,6 +26,8 @@ namespace Veterinaria
         private String sentencia_SQL;      
         //guarda el resultado de la consultam, es un arrayList
         private MySqlDataReader resultado;
+        //variable que sirve para crear la conexion
+        private static MySqlCommand comando;
 
         private DataTable datos = new DataTable();
 
@@ -35,12 +37,14 @@ namespace Veterinaria
         public Form1()
         {
             InitializeComponent();
+            Fillcombo();
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "" || textBox2.Text == "")
+            if (textBox1.Text == "" || comboBox1.Text == "")
             {
                 MessageBox.Show("Proporcione un Usuario y Contraseña Por Favor");
                 return;
@@ -51,12 +55,12 @@ namespace Veterinaria
             conn.Open();
             //Reseteamos el valor de Datatable para poder aceptar más de una vez(en la practica no tiene mucho sentido amenos que exista la posibilidad de deslogearse)
             datos.Clear();
-            MySqlDataAdapter sda = new MySqlDataAdapter("Select * from usuario where login='" + textBox1.Text + "' and pass='" + textBox2.Text + "';", conn);
+            MySqlDataAdapter sda = new MySqlDataAdapter("Select * from usuario where login='" + comboBox1.Text + "' and pass='" + textBox1.Text + "';", conn);
             sda.Fill(datos);
             conn.Close();
             if (datos.Rows.Count == 1)
             {
-                MessageBox.Show("Bien");
+                //MessageBox.Show("Bien");
                MainForm contenido = new MainForm();
                 //lo llamo con this porque con Form1 no lo cosnigo 
                 this.Hide();
@@ -64,10 +68,41 @@ namespace Veterinaria
 
             }
             else {
-                MessageBox.Show("Mal");
+                //MessageBox.Show("Mal");
             }
     
             
+        }
+
+        private void Fillcombo()
+        {
+
+            connStr = "Server=localhost; Database=veterinario; Uid=root; Pwd=root ; Port=3306";
+           conn = new MySqlConnection(connStr);
+          
+           try
+           {
+               conn.Open();
+               sentencia_SQL = "Select * from usuario";
+               comando = new MySqlCommand(sentencia_SQL, conn);
+               resultado = comando.ExecuteReader();
+             
+
+               //cierra la conexion
+               
+               while (resultado.Read())
+               {
+                   string sName = resultado.GetString("login");
+                   comboBox1.Items.Add(sName);
+               }
+               conn.Close();
+           }
+           catch (Exception)
+           {
+               
+               throw;
+           }
+
         }
 
        

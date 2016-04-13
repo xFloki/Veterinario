@@ -50,9 +50,28 @@ namespace Veterinaria
             
         }
 
+        private void cargamascota(){
+        
+            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
+            conn = new MySqlConnection(connStr);
+            //abre la conexion
+            conn.Open();
+            //Se puede realizar de esta manera con el adapter o coon un DataReader, me quedo con esta 
+            MySqlDataAdapter sda = new MySqlDataAdapter("Select * from mascota", conn);
+            conn.Close();
+            sda.Fill(datos);
+            dataGridView1.DataSource = datos;
+            //comando = new MySqlCommand("Select * from cliente", conn);
+            //resultado = comando.ExecuteReader();
+            //datos.Load(resultado);
+            //conn.Close();
+            //dataGridView1.DataSource = datos;
+
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            NewClient nuevoCliente = new NewClient(dataGridView1);
+            NewClient nuevoCliente = new NewClient();
             nuevoCliente.Show();
             
         }
@@ -70,5 +89,14 @@ namespace Veterinaria
             sda.Fill(datos);
             dataGridView1.DataSource = datos;
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            NewPet nuevaMascota = new NewPet();
+            nuevaMascota.Show();
+        }
+
+       
+       
     }
 }
