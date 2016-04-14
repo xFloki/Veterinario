@@ -24,6 +24,8 @@ namespace Veterinaria
         //guarda el resultado de la consultam, es un arrayList
         private MySqlDataReader resultado;
 
+        private string busquedaCliente = "SUUUUUUU";
+
 
         private DataTable datos = new DataTable();
         private int id_Mascota = 2;
@@ -82,7 +84,6 @@ namespace Veterinaria
 
         private void cargarMascota(){
             
-            string fechita;
             connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
             conn = new MySqlConnection(connStr);
             //abre la conexion
@@ -112,7 +113,35 @@ namespace Veterinaria
 
 
         }
+        
+        //Carga los datos del cliente que has seleccionado en el DataGridView en los texbox del tabcontrol3, el que se encuentra junto a este
+        private void cargarCliente()
+        {
+            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
+            conn = new MySqlConnection(connStr);
+            //abre la conexion
+            conn.Open();
+            comando = new MySqlCommand("Select * from cliente where dni = '" + busquedaCliente+"'", conn);
+            resultado = comando.ExecuteReader();
+            //datos.Load(resultado);
+            if (resultado.Read())
+            {
+                //El deshabilitar que se puedan modificar el id y el pasaporte de la mascota lo colocamos aqui en vez de en el metodo
+                //deshabilitarDatosMascota() puesto que solo lo vamos a poner una vez, estos datos nunca los vamos a modificar
+                nombreCliente.Text = resultado.GetString("nombre");
+               
+                apellidoCliente.Text = resultado.GetString("apellido");
+                clienteDni.Text = resultado.GetString("dni");
+                emailCliente.Text = resultado.GetString("email");
+                telefonoCliente.Text = resultado.GetString("telefono");
+                direccionCliente.Text = resultado.GetString("direccion");
+               }
+            resultado.Close();
+            conn.Close();
+            //dataGridView1.DataSource = datos;
+        }
 
+      
         //Se habilitan los texBox de las mascotas para que puedan ser modificados y posteriormente guardados los datos
         private void habilitarDatos()
         {
@@ -168,13 +197,13 @@ namespace Veterinaria
 
         private void button6_Click(object sender, EventArgs e)
         {
-            ++id_Mascota;
+            --id_Mascota;
             cargarMascota();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            --id_Mascota;
+            ++id_Mascota;        
             cargarMascota();
         }
 
@@ -185,12 +214,31 @@ namespace Veterinaria
             if (dr == DialogResult.Yes)
             {
                 cambiarDatosMascota();
+                saveButton.Hide();
             }
             else if (dr == DialogResult.No)
             {
                 cargarMascota();
                 deshabilitarDatosMascota();
+                saveButton.Hide();
             }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        //Cuando haces click sobre el dataGridView se guarda el valor del dni del cliente sobre el que has seleccionado para luego usarlo en la consulta 
+        //en la que te cargara los datos del cliente, también te carga el tab donde se encuentra
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var item = dataGridView1.Rows[e.RowIndex].Cells[0].Value;
+            busquedaCliente = item.ToString();
+           
+            tabControl1.SelectedTab = tabPage4;
+            cargarCliente();
+
         }
     }
 }
