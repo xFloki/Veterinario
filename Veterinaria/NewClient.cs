@@ -21,15 +21,6 @@ namespace Veterinaria
         private static MySqlCommand comando;
         private DataTable datos = new DataTable();
 
-
-        private string dni;
-        private string nombre;
-        private string apellido;
-        private string email;
-        private string telefono;
-        private string direccion;
-        private string fecha;
-
         public NewClient()
         {
             InitializeComponent();
@@ -38,17 +29,18 @@ namespace Veterinaria
         private void button2_Click(object sender, EventArgs e)
         {
             addClient();
+            this.Close();
         }
 
         private void addClient()
         {
-            nombre = textBox1.Text;
-            apellido = textBox2.Text;
-            dni = textBox3.Text;
-            email = textBox4.Text;
-            telefono = textBox5.Text;
-            direccion = textBox6.Text;
-            fecha = dateTimePicker1.Value.ToString("yyyy-MM-dd");
+            string nombre = textBox1.Text;
+            string apellido = textBox2.Text;
+            string dni = textBox3.Text;
+            string email = textBox4.Text;
+            string telefono = textBox5.Text;
+            string direccion = textBox6.Text;
+            string fecha = dateTimePicker1.Value.ToString("yyyy-MM-dd");
             connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
             conn = new MySqlConnection(connStr);
             //abre la conexion
@@ -63,7 +55,7 @@ namespace Veterinaria
             //MySqlDataAdapter sda = new MySqlDataAdapter("INSERT INTO `cliente` VALUES ('"+dni+"','"+nombre+ "','" + apellido + "','" + email + "','" + telefono + "','" + direccion + "','" + fecha + "')", conn);
 
 
-            this.Close();
+           
         }
 
         private void button1_Click(object sender, EventArgs e )

@@ -39,6 +39,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button8 = new System.Windows.Forms.Button();
+            this.clienteDni = new System.Windows.Forms.TextBox();
             this.mascotaCliente = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label19 = new System.Windows.Forms.Label();
@@ -46,8 +48,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.saveButtonCliente = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.direccionCliente = new System.Windows.Forms.TextBox();
             this.nombreCliente = new System.Windows.Forms.TextBox();
@@ -92,7 +93,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.clienteDni = new System.Windows.Forms.TextBox();
             this.Clientes.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -193,7 +193,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(486, 27);
+            this.button2.Location = new System.Drawing.Point(526, 27);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 3;
@@ -213,14 +213,14 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.button8);
             this.tabPage4.Controls.Add(this.clienteDni);
             this.tabPage4.Controls.Add(this.mascotaCliente);
             this.tabPage4.Controls.Add(this.dateTimePicker1);
             this.tabPage4.Controls.Add(this.label19);
             this.tabPage4.Controls.Add(this.label18);
             this.tabPage4.Controls.Add(this.panel3);
-            this.tabPage4.Controls.Add(this.button8);
-            this.tabPage4.Controls.Add(this.button9);
+            this.tabPage4.Controls.Add(this.saveButtonCliente);
             this.tabPage4.Controls.Add(this.button10);
             this.tabPage4.Controls.Add(this.direccionCliente);
             this.tabPage4.Controls.Add(this.nombreCliente);
@@ -241,25 +241,41 @@
             this.tabPage4.Text = "tabPage4";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(702, 189);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(27, 28);
+            this.button8.TabIndex = 55;
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click_2);
+            // 
+            // clienteDni
+            // 
+            this.clienteDni.Location = new System.Drawing.Point(158, 191);
+            this.clienteDni.Name = "clienteDni";
+            this.clienteDni.Size = new System.Drawing.Size(186, 20);
+            this.clienteDni.TabIndex = 54;
+            // 
             // mascotaCliente
             // 
             this.mascotaCliente.FormattingEnabled = true;
-            this.mascotaCliente.Location = new System.Drawing.Point(463, 194);
+            this.mascotaCliente.Location = new System.Drawing.Point(514, 194);
             this.mascotaCliente.Name = "mascotaCliente";
-            this.mascotaCliente.Size = new System.Drawing.Size(124, 21);
+            this.mascotaCliente.Size = new System.Drawing.Size(182, 21);
             this.mascotaCliente.TabIndex = 53;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(455, 124);
+            this.dateTimePicker1.Location = new System.Drawing.Point(514, 123);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(229, 20);
             this.dateTimePicker1.TabIndex = 52;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(386, 197);
+            this.label19.Location = new System.Drawing.Point(433, 202);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(59, 13);
             this.label19.TabIndex = 50;
@@ -268,7 +284,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(343, 130);
+            this.label18.Location = new System.Drawing.Point(386, 129);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(106, 13);
             this.label18.TabIndex = 49;
@@ -301,73 +317,66 @@
             this.textBox9.Size = new System.Drawing.Size(137, 13);
             this.textBox9.TabIndex = 1;
             // 
-            // button8
+            // saveButtonCliente
             // 
-            this.button8.Location = new System.Drawing.Point(720, 21);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 47;
-            this.button8.Text = "Save";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Visible = false;
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(531, 21);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(183, 23);
-            this.button9.TabIndex = 46;
-            this.button9.Text = "chi";
-            this.button9.UseVisualStyleBackColor = true;
+            this.saveButtonCliente.Location = new System.Drawing.Point(587, 22);
+            this.saveButtonCliente.Name = "saveButtonCliente";
+            this.saveButtonCliente.Size = new System.Drawing.Size(75, 23);
+            this.saveButtonCliente.TabIndex = 47;
+            this.saveButtonCliente.Text = "Save";
+            this.saveButtonCliente.UseVisualStyleBackColor = true;
+            this.saveButtonCliente.Visible = false;
+            this.saveButtonCliente.Click += new System.EventHandler(this.button8_Click_1);
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(450, 21);
+            this.button10.Location = new System.Drawing.Point(668, 22);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(75, 23);
             this.button10.TabIndex = 45;
             this.button10.Text = "Editar";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // direccionCliente
             // 
-            this.direccionCliente.Location = new System.Drawing.Point(463, 159);
+            this.direccionCliente.Location = new System.Drawing.Point(514, 159);
             this.direccionCliente.Name = "direccionCliente";
-            this.direccionCliente.Size = new System.Drawing.Size(100, 20);
+            this.direccionCliente.Size = new System.Drawing.Size(182, 20);
             this.direccionCliente.TabIndex = 44;
             // 
             // nombreCliente
             // 
             this.nombreCliente.Location = new System.Drawing.Point(158, 127);
             this.nombreCliente.Name = "nombreCliente";
-            this.nombreCliente.Size = new System.Drawing.Size(100, 20);
+            this.nombreCliente.Size = new System.Drawing.Size(186, 20);
             this.nombreCliente.TabIndex = 43;
             // 
             // telefonoCliente
             // 
             this.telefonoCliente.Location = new System.Drawing.Point(158, 261);
             this.telefonoCliente.Name = "telefonoCliente";
-            this.telefonoCliente.Size = new System.Drawing.Size(100, 20);
+            this.telefonoCliente.Size = new System.Drawing.Size(186, 20);
             this.telefonoCliente.TabIndex = 42;
             // 
             // emailCliente
             // 
             this.emailCliente.Location = new System.Drawing.Point(158, 230);
             this.emailCliente.Name = "emailCliente";
-            this.emailCliente.Size = new System.Drawing.Size(100, 20);
+            this.emailCliente.Size = new System.Drawing.Size(186, 20);
             this.emailCliente.TabIndex = 41;
             // 
             // apellidoCliente
             // 
             this.apellidoCliente.Location = new System.Drawing.Point(158, 162);
             this.apellidoCliente.Name = "apellidoCliente";
-            this.apellidoCliente.Size = new System.Drawing.Size(100, 20);
+            this.apellidoCliente.Size = new System.Drawing.Size(186, 20);
             this.apellidoCliente.TabIndex = 39;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(390, 162);
+            this.label12.Location = new System.Drawing.Point(437, 162);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(55, 13);
             this.label12.TabIndex = 12;
@@ -498,7 +507,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(735, 30);
+            this.saveButton.Location = new System.Drawing.Point(654, 70);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 36;
@@ -678,17 +687,17 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(546, 30);
+            this.button4.Location = new System.Drawing.Point(627, 32);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(183, 23);
             this.button4.TabIndex = 7;
-            this.button4.Text = "chi";
+            this.button4.Text = "Nueva mascota";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(465, 30);
+            this.button3.Location = new System.Drawing.Point(735, 70);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 6;
@@ -701,7 +710,7 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Location = new System.Drawing.Point(40, 30);
+            this.panel2.Location = new System.Drawing.Point(38, 30);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(170, 25);
             this.panel2.TabIndex = 5;
@@ -722,13 +731,6 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(137, 13);
             this.textBox2.TabIndex = 1;
-            // 
-            // clienteDni
-            // 
-            this.clienteDni.Location = new System.Drawing.Point(158, 191);
-            this.clienteDni.Name = "clienteDni";
-            this.clienteDni.Size = new System.Drawing.Size(100, 20);
-            this.clienteDni.TabIndex = 54;
             // 
             // MainForm
             // 
@@ -811,8 +813,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button saveButtonCliente;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.TextBox direccionCliente;
         private System.Windows.Forms.TextBox nombreCliente;
@@ -831,5 +832,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox mascotaCliente;
         private System.Windows.Forms.TextBox clienteDni;
+        private System.Windows.Forms.Button button8;
     }
 }

@@ -28,13 +28,15 @@ namespace Veterinaria
 
 
         private DataTable datos = new DataTable();
-        private int id_Mascota = 2;
+        private string id_Mascota = "2";
+        
 
         public MainForm()
         {
             InitializeComponent();
             cargaClientes();
             cargarMascota();
+
 
 
 
@@ -55,6 +57,7 @@ namespace Veterinaria
             //datos.Load(resultado);
             //conn.Close();
             //dataGridView1.DataSource = datos;
+            deshabilitarDatosCliente();
             
         }
 
@@ -126,10 +129,11 @@ namespace Veterinaria
             //datos.Load(resultado);
             if (resultado.Read())
             {
+               
                 //El deshabilitar que se puedan modificar el id y el pasaporte de la mascota lo colocamos aqui en vez de en el metodo
                 //deshabilitarDatosMascota() puesto que solo lo vamos a poner una vez, estos datos nunca los vamos a modificar
                 nombreCliente.Text = resultado.GetString("nombre");
-               
+                dateTimePicker1.Text = resultado.GetString("fecha_nacimiento");
                 apellidoCliente.Text = resultado.GetString("apellido");
                 clienteDni.Text = resultado.GetString("dni");
                 emailCliente.Text = resultado.GetString("email");
@@ -137,7 +141,31 @@ namespace Veterinaria
                 direccionCliente.Text = resultado.GetString("direccion");
                }
             resultado.Close();
+            try
+            {
+
+                sentencia_SQL = "select mascota.nombre,mascota.id   from cliente, mascota where cliente.dni = mascota.propietario and cliente.dni = '" +
+                busquedaCliente + "'";
+                comando = new MySqlCommand(sentencia_SQL, conn);
+                resultado = comando.ExecuteReader();
+                mascotaCliente.Items.Clear();
+                while (resultado.Read())
+                {
+                    string sName = resultado.GetString("id");
+                    mascotaCliente.Items.Add(sName);
+                    mascotaCliente.Text = sName;
+                    
+                }
+    
+               
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
             conn.Close();
+            deshabilitarDatosCliente();
             //dataGridView1.DataSource = datos;
         }
 
@@ -152,6 +180,17 @@ namespace Veterinaria
             nacimientoMascota.Enabled = true;
             razaMascota.ReadOnly = false;
         }
+
+        private void habilitarDatosCliente()
+        {
+            nombreCliente.ReadOnly = false;
+            apellidoCliente.ReadOnly = false;
+            emailCliente.ReadOnly = false;
+            dateTimePicker1.Enabled = true;
+            direccionCliente.ReadOnly = false;
+            telefonoCliente.ReadOnly = false;
+        }
+
         private void deshabilitarDatosMascota() {
             nombreMascota.ReadOnly = true;
             sexoMascota.ReadOnly = true;
@@ -159,6 +198,19 @@ namespace Veterinaria
             chipMascota.ReadOnly = true;
             nacimientoMascota.Enabled = false;
             razaMascota.ReadOnly = true;
+        }
+
+        private void deshabilitarDatosCliente()
+        {
+
+            nombreCliente.ReadOnly = true;
+            apellidoCliente.ReadOnly = true;
+            clienteDni.ReadOnly = true;
+            emailCliente.ReadOnly = true;
+            dateTimePicker1.Enabled = false;
+            direccionCliente.ReadOnly = true;
+            telefonoCliente.ReadOnly = true;
+            
         }
 
         //Creamos las ventana para añadir un nuevo cliente
@@ -197,13 +249,13 @@ namespace Veterinaria
 
         private void button6_Click(object sender, EventArgs e)
         {
-            --id_Mascota;
+            //--id_Mascota;
             cargarMascota();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            ++id_Mascota;        
+            //++id_Mascota;        
             cargarMascota();
         }
 
@@ -239,6 +291,36 @@ namespace Veterinaria
             tabControl1.SelectedTab = tabPage4;
             cargarCliente();
 
+        }
+
+        private void button8_Click_1(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("¿Esta seguro que desea sobreescribir los datos?", "OPERACION CRITICA", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            if (dr == DialogResult.Yes)
+            {
+                //cambiarDatosCliente();
+                saveButtonCliente.Hide();
+            }
+            else if (dr == DialogResult.No)
+            {
+                cargarCliente();
+                deshabilitarDatosCliente();
+                saveButtonCliente.Hide();
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            saveButtonCliente.Show();
+            habilitarDatosCliente();
+        }
+
+        private void button8_Click_2(object sender, EventArgs e)
+        {
+            Clientes.SelectedTab = tabPage2;
+            id_Mascota = mascotaCliente.Text;
+            cargarMascota();
         }
     }
 }
