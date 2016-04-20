@@ -34,11 +34,48 @@ namespace Veterinaria
         public MainForm()
         {
             InitializeComponent();
+          
             cargaClientes();
             cargarMascota();
+            autoCompletar();
 
 
 
+
+        }
+
+        private void autoCompletar()
+        {
+            textBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            textBox1.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+
+
+            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
+            conn = new MySqlConnection(connStr);
+            //abre la conexion
+            try
+            {
+                conn.Open();
+                sentencia_SQL = "select * from cliente";
+                comando = new MySqlCommand(sentencia_SQL, conn);
+                resultado = comando.ExecuteReader();
+                while (resultado.Read())
+                {
+                    string sName = resultado.GetString("nombre");
+                    coll.Add(sName);
+
+                }
+                conn.Close();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            textBox1.AutoCompleteCustomSource = coll;
 
         }
 
@@ -321,6 +358,35 @@ namespace Veterinaria
             Clientes.SelectedTab = tabPage2;
             id_Mascota = mascotaCliente.Text;
             cargarMascota();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (textBox1 != null && !string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+
+                connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
+                conn = new MySqlConnection(connStr);
+                //abre la conexion
+                conn.Open();
+                //Se puede realizar de esta manera con el adapter o coon un DataReader, me quedo con esta 
+                MySqlDataAdapter sda = new MySqlDataAdapter("Select * from cliente where nombre REGEXP '" + textBox1.Text + "'", conn);
+                conn.Close();
+                datos.Clear();
+                sda.Fill(datos);
+                dataGridView1.DataSource = datos;
+
+            }
+            else
+            {
+                cargaClientes();
+            }
+            
         }
     }
 }
