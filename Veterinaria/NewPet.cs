@@ -33,15 +33,15 @@ namespace Veterinaria
         }
 
         private void addPet() {
-            string nombre = textBox1.Text;
-            string sexo = textBox3.Text;
-            string id = textBox2.Text;
-            string especie = textBox4.Text;
-            string chip = textBox5.Text;
-            string raza = textBox6.Text;
+            string nombre = newNamePet.Text;
+            string sexo = newSexPet.Text;
+            string id = newIdMascota.Text;
+            string especie = newEspeciePet.Text;
+            string chip = newChipPet.Text;
+            string raza = newRazaPet.Text;
             string fecha = dateTimePicker1.Value.ToString("yyyy-MM-dd");
-            string propietario = comboBox1.Text;
-            string pasport = textBox7.Text;
+            string propietario = newPropietarioPet.Text;
+            string pasport = newPasportPet.Text;
 
             connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
             conn = new MySqlConnection(connStr);
@@ -49,7 +49,7 @@ namespace Veterinaria
             conn.Open();
 
             comando = new MySqlCommand("INSERT INTO `mascota` VALUES ('" + id + "','" + nombre + "','" + pasport + "','" + sexo + "','" + especie + "','" + chip + 
-                "','" + propietario + "','" + raza + "','" + fecha + "',')", conn);
+                "','" + propietario + "','" + raza + "','" + fecha + "')", conn);
             comando.ExecuteNonQuery();
             conn.Close();
           
@@ -65,12 +65,12 @@ namespace Veterinaria
                 sentencia_SQL = "select dni from cliente";
                 comando = new MySqlCommand(sentencia_SQL, conn);
                 resultado = comando.ExecuteReader();
-                comboBox1.Items.Clear();
+                newPropietarioPet.Items.Clear();
                 while (resultado.Read())
                 {
                     string sName = resultado.GetString("dni");
-                    comboBox1.Items.Add(sName);
-                    comboBox1.Text = sName;
+                    newPropietarioPet.Items.Add(sName);
+                    newPropietarioPet.Text = sName;
 
                 }
 

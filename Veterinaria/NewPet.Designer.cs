@@ -36,20 +36,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.newEspeciePet = new System.Windows.Forms.TextBox();
+            this.newNamePet = new System.Windows.Forms.TextBox();
+            this.newChipPet = new System.Windows.Forms.TextBox();
+            this.newSexPet = new System.Windows.Forms.TextBox();
+            this.newRazaPet = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.newPropietarioPet = new System.Windows.Forms.ComboBox();
+            this.newIdMascota = new System.Windows.Forms.TextBox();
+            this.newPasportPet = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -129,40 +129,40 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // textBox4
+            // newEspeciePet
             // 
-            this.textBox4.Location = new System.Drawing.Point(131, 106);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 20;
+            this.newEspeciePet.Location = new System.Drawing.Point(131, 106);
+            this.newEspeciePet.Name = "newEspeciePet";
+            this.newEspeciePet.Size = new System.Drawing.Size(100, 20);
+            this.newEspeciePet.TabIndex = 20;
             // 
-            // textBox1
+            // newNamePet
             // 
-            this.textBox1.Location = new System.Drawing.Point(131, 42);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 19;
+            this.newNamePet.Location = new System.Drawing.Point(131, 42);
+            this.newNamePet.Name = "newNamePet";
+            this.newNamePet.Size = new System.Drawing.Size(100, 20);
+            this.newNamePet.TabIndex = 19;
             // 
-            // textBox5
+            // newChipPet
             // 
-            this.textBox5.Location = new System.Drawing.Point(131, 141);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 24;
+            this.newChipPet.Location = new System.Drawing.Point(131, 141);
+            this.newChipPet.Name = "newChipPet";
+            this.newChipPet.Size = new System.Drawing.Size(100, 20);
+            this.newChipPet.TabIndex = 24;
             // 
-            // textBox3
+            // newSexPet
             // 
-            this.textBox3.Location = new System.Drawing.Point(131, 74);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 21;
+            this.newSexPet.Location = new System.Drawing.Point(131, 74);
+            this.newSexPet.Name = "newSexPet";
+            this.newSexPet.Size = new System.Drawing.Size(100, 20);
+            this.newSexPet.TabIndex = 21;
             // 
-            // textBox6
+            // newRazaPet
             // 
-            this.textBox6.Location = new System.Drawing.Point(131, 177);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 23;
+            this.newRazaPet.Location = new System.Drawing.Point(131, 177);
+            this.newRazaPet.Name = "newRazaPet";
+            this.newRazaPet.Size = new System.Drawing.Size(100, 20);
+            this.newRazaPet.TabIndex = 23;
             // 
             // dateTimePicker1
             // 
@@ -215,27 +215,27 @@
             this.label6.TabIndex = 31;
             this.label6.Text = "Propietario:";
             // 
-            // comboBox1
+            // newPropietarioPet
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(303, 168);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(183, 21);
-            this.comboBox1.TabIndex = 32;
+            this.newPropietarioPet.FormattingEnabled = true;
+            this.newPropietarioPet.Location = new System.Drawing.Point(303, 168);
+            this.newPropietarioPet.Name = "newPropietarioPet";
+            this.newPropietarioPet.Size = new System.Drawing.Size(183, 21);
+            this.newPropietarioPet.TabIndex = 32;
             // 
-            // textBox2
+            // newIdMascota
             // 
-            this.textBox2.Location = new System.Drawing.Point(359, 31);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 36;
+            this.newIdMascota.Location = new System.Drawing.Point(359, 31);
+            this.newIdMascota.Name = "newIdMascota";
+            this.newIdMascota.Size = new System.Drawing.Size(100, 20);
+            this.newIdMascota.TabIndex = 36;
             // 
-            // textBox7
+            // newPasportPet
             // 
-            this.textBox7.Location = new System.Drawing.Point(359, 67);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 35;
+            this.newPasportPet.Location = new System.Drawing.Point(359, 67);
+            this.newPasportPet.Name = "newPasportPet";
+            this.newPasportPet.Size = new System.Drawing.Size(100, 20);
+            this.newPasportPet.TabIndex = 35;
             // 
             // label9
             // 
@@ -260,22 +260,22 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(514, 501);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.newIdMascota);
+            this.Controls.Add(this.newPasportPet);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.newPropietarioPet);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.newChipPet);
+            this.Controls.Add(this.newRazaPet);
+            this.Controls.Add(this.newSexPet);
+            this.Controls.Add(this.newEspeciePet);
+            this.Controls.Add(this.newNamePet);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label8);
@@ -302,20 +302,20 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox newEspeciePet;
+        private System.Windows.Forms.TextBox newNamePet;
+        private System.Windows.Forms.TextBox newChipPet;
+        private System.Windows.Forms.TextBox newSexPet;
+        private System.Windows.Forms.TextBox newRazaPet;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.ComboBox newPropietarioPet;
+        private System.Windows.Forms.TextBox newIdMascota;
+        private System.Windows.Forms.TextBox newPasportPet;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
     }
