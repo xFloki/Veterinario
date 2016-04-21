@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -28,7 +30,7 @@ namespace Veterinaria
 
 
         private DataTable datos = new DataTable();
-        private string id_Mascota = "2";
+        private int id_Mascota = 2;
         
 
         public MainForm()
@@ -38,6 +40,7 @@ namespace Veterinaria
             cargaClientes();
             cargarMascota();
             autoCompletar();
+            
 
 
 
@@ -94,6 +97,12 @@ namespace Veterinaria
             //datos.Load(resultado);
             //conn.Close();
             //dataGridView1.DataSource = datos;
+
+            dataGridView1.Columns["Borrar"].DisplayIndex = 7;
+            //dataGridView1.Columns["ContactTitle"].DisplayIndex = 1;
+            //dataGridView1.Columns["City"].DisplayIndex = 2;
+            //dataGridView1.Columns["Country"].DisplayIndex = 3;
+            //dataGridView1.Columns["CompanyName"].DisplayIndex = 4;
             deshabilitarDatosCliente();
             
         }
@@ -135,6 +144,7 @@ namespace Veterinaria
             {
                 //El deshabilitar que se puedan modificar el id y el pasaporte de la mascota lo colocamos aqui en vez de en el metodo
                 //deshabilitarDatosMascota() puesto que solo lo vamos a poner una vez, estos datos nunca los vamos a modificar
+                string fotoMascotaUrl;
                 idMascota.Text = resultado.GetString("id");
                 idMascota.ReadOnly = true;
                 nombreMascota.Text = resultado.GetString("nombre");
@@ -145,6 +155,19 @@ namespace Veterinaria
                 pasaporteMascota.ReadOnly = true;
                 nacimientoMascota.Text = resultado.GetString("fecha_nacimiento"); 
                 razaMascota.Text = resultado.GetString("raza");
+                fotoMascotaUrl = resultado.GetString("foto");
+              
+                //Para que el programa no se quede esperando al principio mientras descarga la primera imagen la de la mascota 
+                //la descargamos 
+                WebClient wc = new WebClient();
+                wc.Proxy = null;
+                byte[] bFile = wc.DownloadData((String)resultado.GetString("foto"));
+                MemoryStream ms = new MemoryStream(bFile);
+                Image img = Image.FromStream(ms);
+                fotoMascota.Image = img;
+                //fotoMascota.Load("http://fress.co/wp-content/uploads/2014/05/Animales-cansados-15.jpg");
+                //Scalamos la imagen para que quede bien en nuestro pictureBox
+                fotoMascota.SizeMode = PictureBoxSizeMode.Zoom;
                 deshabilitarDatosMascota();
             }
             resultado.Close();
@@ -286,13 +309,13 @@ namespace Veterinaria
 
         private void button6_Click(object sender, EventArgs e)
         {
-            //--id_Mascota;
+            --id_Mascota;
             cargarMascota();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            //++id_Mascota;        
+            ++id_Mascota;        
             cargarMascota();
         }
 
@@ -356,7 +379,7 @@ namespace Veterinaria
         private void button8_Click_2(object sender, EventArgs e)
         {
             Clientes.SelectedTab = tabPage2;
-            id_Mascota = mascotaCliente.Text;
+            //id_Mascota = mascotaCliente.Text;
             cargarMascota();
         }
 
