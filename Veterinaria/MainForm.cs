@@ -36,7 +36,8 @@ namespace Veterinaria
         public MainForm()
         {
             InitializeComponent();
-          
+            
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             cargaClientes();
             cargarMascota();
             autoCompletar();
@@ -345,7 +346,9 @@ namespace Veterinaria
         //en la que te cargara los datos del cliente, también te carga el tab donde se encuentra
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var item = dataGridView1.Rows[e.RowIndex].Cells[0].Value;
+
+            //he tenido que usar el numero de celda 1 ya que al añadir la fila de la imagen se me ha puesto la 0 
+            var item = dataGridView1.Rows[e.RowIndex].Cells[1].Value;
             busquedaCliente = item.ToString();
            
             tabControl1.SelectedTab = tabPage4;

@@ -37,8 +37,11 @@ namespace Veterinaria
         public Form1()
         {
             InitializeComponent();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.CenterToScreen();
             Fillcombo();
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+
             
         }
 
@@ -61,10 +64,28 @@ namespace Veterinaria
             if (datos.Rows.Count == 1)
             {
                 //MessageBox.Show("Bien");
-               MainForm contenido = new MainForm();
+               //MainForm contenido = new MainForm();
+                
                 //lo llamo con this porque con Form1 no lo cosnigo 
                 this.Hide();
-                contenido.Show();
+                //for (int index = Application.OpenForms.Count - 1; index >= 0; index--)
+                //{
+                //    if (Application.OpenForms[1].Name == "Form2")
+                //    {
+                //        Application.OpenForms[1].Close;
+                //    }
+                //}
+                Application.OpenForms[1].Hide();
+                //Application.OpenForms[1].WindowState = FormWindowState.Normal ;
+                //Application.OpenForms[1].FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                //Application.OpenForms[1].Width = 800;
+                //Application.OpenForms[1].Height = 800;
+                //Application.OpenForms[1].TopMost = true;
+                //contenido.Show();
+                Fondo fondo = new Fondo();
+                fondo.Show();
+                
+                
 
             }
             else {

@@ -33,8 +33,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Borrar = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -46,7 +46,6 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.saveButtonCliente = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
@@ -71,7 +70,6 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.fotoMascota = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.razaMascota = new System.Windows.Forms.TextBox();
             this.chipMascota = new System.Windows.Forms.TextBox();
@@ -91,23 +89,25 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.Borrar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.fotoMascota = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Clientes.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fotoMascota)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoMascota)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -169,6 +169,13 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // Borrar
+            // 
+            this.Borrar.HeaderText = "Eliminar";
+            this.Borrar.Name = "Borrar";
+            this.Borrar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Borrar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -178,16 +185,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(170, 25);
             this.panel1.TabIndex = 4;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Veterinaria.Properties.Resources.search;
-            this.pictureBox1.Location = new System.Drawing.Point(147, 1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // textBox1
             // 
@@ -306,15 +303,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(170, 25);
             this.panel3.TabIndex = 48;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Veterinaria.Properties.Resources.search;
-            this.pictureBox3.Location = new System.Drawing.Point(147, 1);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
             // 
             // textBox9
             // 
@@ -445,7 +433,6 @@
             this.tabPage2.Controls.Add(this.button7);
             this.tabPage2.Controls.Add(this.button6);
             this.tabPage2.Controls.Add(this.button5);
-            this.tabPage2.Controls.Add(this.fotoMascota);
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.razaMascota);
             this.tabPage2.Controls.Add(this.chipMascota);
@@ -465,6 +452,7 @@
             this.tabPage2.Controls.Add(this.button4);
             this.tabPage2.Controls.Add(this.button3);
             this.tabPage2.Controls.Add(this.panel2);
+            this.tabPage2.Controls.Add(this.fotoMascota);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -551,14 +539,6 @@
             this.button5.TabIndex = 33;
             this.button5.Text = "Nueva\r\n\r\nVisita";
             this.button5.UseVisualStyleBackColor = true;
-            // 
-            // fotoMascota
-            // 
-            this.fotoMascota.Location = new System.Drawing.Point(710, 158);
-            this.fotoMascota.Name = "fotoMascota";
-            this.fotoMascota.Size = new System.Drawing.Size(264, 224);
-            this.fotoMascota.TabIndex = 32;
-            this.fotoMascota.TabStop = false;
             // 
             // label9
             // 
@@ -722,6 +702,41 @@
             this.panel2.Size = new System.Drawing.Size(170, 25);
             this.panel2.TabIndex = 5;
             // 
+            // textBox2
+            // 
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Location = new System.Drawing.Point(4, 5);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(137, 13);
+            this.textBox2.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Veterinaria.Properties.Resources.search;
+            this.pictureBox1.Location = new System.Drawing.Point(147, 1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Veterinaria.Properties.Resources.search;
+            this.pictureBox3.Location = new System.Drawing.Point(147, 1);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
+            // 
+            // fotoMascota
+            // 
+            this.fotoMascota.Location = new System.Drawing.Point(710, 158);
+            this.fotoMascota.Name = "fotoMascota";
+            this.fotoMascota.Size = new System.Drawing.Size(264, 224);
+            this.fotoMascota.TabIndex = 32;
+            this.fotoMascota.TabStop = false;
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Veterinaria.Properties.Resources.search;
@@ -731,27 +746,13 @@
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
             // 
-            // textBox2
-            // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Location = new System.Drawing.Point(4, 5);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(137, 13);
-            this.textBox2.TabIndex = 1;
-            // 
-            // Borrar
-            // 
-            this.Borrar.HeaderText = "Eliminar";
-            this.Borrar.Name = "Borrar";
-            this.Borrar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Borrar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1061, 572);
             this.Controls.Add(this.Clientes);
+            this.Location = new System.Drawing.Point(523, 363);
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -762,18 +763,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fotoMascota)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoMascota)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
