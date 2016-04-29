@@ -15,7 +15,7 @@ namespace Veterinaria
         public Fondo()
         {
             InitializeComponent();
-            
+            pictureBox2.SendToBack();
             
         }
 

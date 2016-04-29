@@ -41,6 +41,8 @@ namespace Veterinaria
             cargaClientes();
             cargarMascota();
             autoCompletar();
+            this.Location = new Point(1920,0);
+
             
 
 

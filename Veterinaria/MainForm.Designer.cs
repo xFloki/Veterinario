@@ -92,8 +92,8 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.fotoMascota = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.fotoMascota = new System.Windows.Forms.PictureBox();
             this.Clientes.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -107,8 +107,8 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fotoMascota)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoMascota)).BeginInit();
             this.SuspendLayout();
             // 
             // Clientes
@@ -163,7 +163,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Borrar});
-            this.dataGridView1.Location = new System.Drawing.Point(-4, 102);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 102);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1005, 387);
             this.dataGridView1.TabIndex = 0;
@@ -729,14 +729,6 @@
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
             // 
-            // fotoMascota
-            // 
-            this.fotoMascota.Location = new System.Drawing.Point(710, 158);
-            this.fotoMascota.Name = "fotoMascota";
-            this.fotoMascota.Size = new System.Drawing.Size(264, 224);
-            this.fotoMascota.TabIndex = 32;
-            this.fotoMascota.TabStop = false;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Veterinaria.Properties.Resources.search;
@@ -746,13 +738,21 @@
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
             // 
+            // fotoMascota
+            // 
+            this.fotoMascota.Location = new System.Drawing.Point(710, 158);
+            this.fotoMascota.Name = "fotoMascota";
+            this.fotoMascota.Size = new System.Drawing.Size(264, 224);
+            this.fotoMascota.TabIndex = 32;
+            this.fotoMascota.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1061, 572);
             this.Controls.Add(this.Clientes);
-            this.Location = new System.Drawing.Point(523, 363);
+            this.Location = new System.Drawing.Point(654, 303);
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -774,8 +774,8 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fotoMascota)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoMascota)).EndInit();
             this.ResumeLayout(false);
 
         }
