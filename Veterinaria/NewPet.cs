@@ -35,13 +35,15 @@ namespace Veterinaria
         private void addPet() {
             string nombre = newNamePet.Text;
             string sexo = newSexPet.Text;
-            string id = newIdMascota.Text;
+            string id = "";
             string especie = newEspeciePet.Text;
             string chip = newChipPet.Text;
             string raza = newRazaPet.Text;
             string fecha = dateTimePicker1.Value.ToString("yyyy-MM-dd");
             string propietario = newPropietarioPet.Text;
             string pasport = newPasportPet.Text;
+            string foto = newFotoPet.Text;
+
 
             connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
             conn = new MySqlConnection(connStr);
@@ -49,7 +51,7 @@ namespace Veterinaria
             conn.Open();
 
             comando = new MySqlCommand("INSERT INTO `mascota` VALUES ('" + id + "','" + nombre + "','" + pasport + "','" + sexo + "','" + especie + "','" + chip + 
-                "','" + propietario + "','" + raza + "','" + fecha + "')", conn);
+                "','" + propietario + "','" + raza + "','" + fecha + "','"+ foto +"')", conn);
             comando.ExecuteNonQuery();
             conn.Close();
           

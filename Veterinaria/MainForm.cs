@@ -40,9 +40,6 @@ namespace Veterinaria
             cargaClientes();
             cargarMascota();
             autoCompletar();
-
-            
-
         }
         
 
