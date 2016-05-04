@@ -45,7 +45,7 @@
             // veterinariaNombre
             // 
             this.veterinariaNombre.BackColor = System.Drawing.Color.White;
-            this.veterinariaNombre.Font = new System.Drawing.Font("Britannic Bold", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.veterinariaNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.veterinariaNombre.ForeColor = System.Drawing.SystemColors.Highlight;
             this.veterinariaNombre.Location = new System.Drawing.Point(34, 46);
             this.veterinariaNombre.Name = "veterinariaNombre";
@@ -76,6 +76,7 @@
             this.button3.TabIndex = 3;
             this.button3.Text = "Nuevo Cliente";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button5
             // 
@@ -87,6 +88,7 @@
             this.button5.TabIndex = 5;
             this.button5.Text = "Nuevo Cliente";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button2
             // 
@@ -98,6 +100,7 @@
             this.button2.TabIndex = 6;
             this.button2.Text = "Nuevo Cliente";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button4
             // 
@@ -109,6 +112,7 @@
             this.button4.TabIndex = 7;
             this.button4.Text = "Nuevo Cliente";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button7
             // 
@@ -120,6 +124,7 @@
             this.button7.TabIndex = 9;
             this.button7.Text = "Close";
             this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
@@ -131,12 +136,13 @@
             this.button8.TabIndex = 10;
             this.button8.Text = "LogOut";
             this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::Veterinaria.Properties.Resources.inicio;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(654, 303);
+            this.pictureBox1.Location = new System.Drawing.Point(610, 303);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1059, 575);
             this.pictureBox1.TabIndex = 11;
@@ -145,10 +151,10 @@
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = global::Veterinaria.Properties.Resources.fondo;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Location = new System.Drawing.Point(1, -6);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1905, 1048);
+            this.pictureBox2.Size = new System.Drawing.Size(1916, 1050);
             this.pictureBox2.TabIndex = 12;
             this.pictureBox2.TabStop = false;
             // 

@@ -19,12 +19,72 @@ namespace Veterinaria
             
         }
 
+        private void resetearBotones(Object sender)
+        {
+            Button btn = (Button)sender;
+            if (btn.ForeColor.Equals(Color.DeepSkyBlue)
+                )
+            {
+                button1.ForeColor = Color.Black;
+                button2.ForeColor = Color.Black;
+                button3.ForeColor = Color.Black;
+                button4.ForeColor = Color.Black;
+                button5.ForeColor = Color.Black;
+                //button6.ForeColor = Color.White;
+                button7.ForeColor = Color.Black;
+                button8.ForeColor = Color.Black;
+
+                btn.ForeColor = Color.White;
+            }
+
+            
+        }
+
+
+        //Sobrescrimibos el metodo de el cierre del form ya que queremos que cuando lo cerremos no solo cerremos este form sino toda la aplicacion
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             MainForm contenido = new MainForm();
             contenido.Show();
             Button btn = (Button)sender;
             btn.ForeColor = Color.White;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            resetearBotones(sender);
+           Application.Exit();
+        
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            resetearBotones(sender);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            resetearBotones(sender);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            resetearBotones(sender);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            resetearBotones(sender);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            resetearBotones(sender);
         }
     }
 }

@@ -36,19 +36,15 @@ namespace Veterinaria
         public MainForm()
         {
             InitializeComponent();
-            
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             cargaClientes();
             cargarMascota();
             autoCompletar();
-            this.Location = new Point(1920,0);
 
             
 
-
-
-
         }
+        
 
         private void autoCompletar()
         {
@@ -159,7 +155,7 @@ namespace Veterinaria
                 nacimientoMascota.Text = resultado.GetString("fecha_nacimiento"); 
                 razaMascota.Text = resultado.GetString("raza");
                 fotoMascotaUrl = resultado.GetString("foto");
-              
+
                 //Para que el programa no se quede esperando al principio mientras descarga la primera imagen la de la mascota 
                 //la descargamos 
                 WebClient wc = new WebClient();

@@ -83,6 +83,8 @@ namespace Veterinaria
                 //Application.OpenForms[1].TopMost = true;
                 //contenido.Show();
                 Fondo fondo = new Fondo();
+                fondo.StartPosition = FormStartPosition.Manual;
+                fondo.Location = new Point(0, 0);
                 fondo.Show();
                 
                 
