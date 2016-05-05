@@ -142,8 +142,10 @@
     <None Include="Copia de Resources\search.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\newPetIcon.png" />
     <None Include="Resources\logo1.jpg" />
     <None Include="Resources\fondo.jpg" />
+    <None Include="Resources\fondo1.jpg" />
     <Content Include="Resources\inicio.jpg" />
     <None Include="Resources\inicio1.jpg" />
     <None Include="Resources\inicio2.jpg" />

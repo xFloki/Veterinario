@@ -30,6 +30,7 @@ namespace Veterinaria
         {
             InitializeComponent();
             cargaPropietarios();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
 
         private void addPet() {

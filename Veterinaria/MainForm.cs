@@ -40,6 +40,7 @@ namespace Veterinaria
             cargaClientes();
             cargarMascota();
             autoCompletar();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
         
 

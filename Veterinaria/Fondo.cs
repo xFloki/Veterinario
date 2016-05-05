@@ -17,13 +17,14 @@ namespace Veterinaria
             InitializeComponent();
             pictureBox2.SendToBack();
             
+            
         }
+   
 
         private void resetearBotones(Object sender)
         {
             Button btn = (Button)sender;
-            if (btn.ForeColor.Equals(Color.DeepSkyBlue)
-                )
+            if (btn.ForeColor == Color.Black)
             {
                 button1.ForeColor = Color.Black;
                 button2.ForeColor = Color.Black;
@@ -35,7 +36,8 @@ namespace Veterinaria
                 button8.ForeColor = Color.Black;
 
                 btn.ForeColor = Color.White;
-            }
+
+            } 
 
             
         }
@@ -49,10 +51,17 @@ namespace Veterinaria
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MainForm contenido = new MainForm();
-            contenido.Show();
+
             Button btn = (Button)sender;
-            btn.ForeColor = Color.White;
+            if (btn.ForeColor == Color.Black)
+            {
+                MainForm contenido = new MainForm();
+                contenido.Show();
+
+            }     
+            resetearBotones(sender);
+           
+                    
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -85,6 +94,17 @@ namespace Veterinaria
         private void button8_Click(object sender, EventArgs e)
         {
             resetearBotones(sender);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime dateTime = DateTime.Now;
+            this.label1.Text = dateTime.ToString();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
