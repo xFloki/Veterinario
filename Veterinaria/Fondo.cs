@@ -21,7 +21,7 @@ namespace Veterinaria
         }
    
 
-        private void resetearBotones(Object sender)
+        private void resetearBotones(object sender)
         {
             Button btn = (Button)sender;
             if (btn.ForeColor == Color.Black)
@@ -58,7 +58,7 @@ namespace Veterinaria
                 MainForm contenido = new MainForm();
                 contenido.Show();
 
-            }     
+            }
             resetearBotones(sender);
            
                     
@@ -74,6 +74,10 @@ namespace Veterinaria
         private void button4_Click(object sender, EventArgs e)
         {
             resetearBotones(sender);
+            userControl11.Enabled = true;
+            userControl11.BringToFront();
+            userControl11.Visible = true;
+            
         }
 
         private void button3_Click(object sender, EventArgs e)

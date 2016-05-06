@@ -42,6 +42,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.userControl11 = new Veterinaria.UserControl1();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -74,6 +75,7 @@
             // 
             this.button3.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.Black;
             this.button3.Location = new System.Drawing.Point(47, 489);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(233, 36);
@@ -86,6 +88,7 @@
             // 
             this.button5.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.Black;
             this.button5.Location = new System.Drawing.Point(47, 605);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(233, 36);
@@ -98,6 +101,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.Black;
             this.button2.Location = new System.Drawing.Point(46, 542);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(234, 36);
@@ -110,6 +114,7 @@
             // 
             this.button4.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.Black;
             this.button4.Location = new System.Drawing.Point(47, 433);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(233, 36);
@@ -122,6 +127,7 @@
             // 
             this.button7.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.Color.Black;
             this.button7.Location = new System.Drawing.Point(46, 690);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(96, 36);
@@ -134,6 +140,7 @@
             // 
             this.button8.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.Color.Black;
             this.button8.Location = new System.Drawing.Point(190, 690);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(90, 36);
@@ -190,6 +197,16 @@
             this.label2.TabIndex = 14;
             this.label2.Text = "Menu";
             // 
+            // userControl11
+            // 
+            this.userControl11.BackColor = System.Drawing.Color.White;
+            this.userControl11.Enabled = false;
+            this.userControl11.Location = new System.Drawing.Point(518, 267);
+            this.userControl11.Name = "userControl11";
+            this.userControl11.Size = new System.Drawing.Size(1062, 619);
+            this.userControl11.TabIndex = 15;
+            this.userControl11.Visible = false;
+            // 
             // Fondo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -207,6 +224,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.veterinariaNombre);
             this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.userControl11);
             this.Name = "Fondo";
             this.Text = "g";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -232,6 +250,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label2;
-
+        private UserControl1 userControl11;
     }
 }
