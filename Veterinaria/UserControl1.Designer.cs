@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label9 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.newFotoPet = new System.Windows.Forms.TextBox();
             this.newPasportPet = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -48,8 +47,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnSalirNewPet = new System.Windows.Forms.Button();
+            this.btnAddNewPet = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,21 +57,11 @@
             // 
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label9.Location = new System.Drawing.Point(484, 106);
+            this.label9.Location = new System.Drawing.Point(484, 80);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(380, 52);
             this.label9.TabIndex = 61;
             this.label9.Text = "Nueva Mascota";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Veterinaria.Properties.Resources.newPetIcon;
-            this.pictureBox1.Location = new System.Drawing.Point(328, 73);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(128, 120);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 60;
-            this.pictureBox1.TabStop = false;
             // 
             // newFotoPet
             // 
@@ -237,32 +227,44 @@
             this.label2.TabIndex = 40;
             this.label2.Text = "Nombre";
             // 
-            // button1
+            // btnSalirNewPet
             // 
-            this.button1.BackColor = System.Drawing.Color.Gold;
-            this.button1.Location = new System.Drawing.Point(730, 447);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 30);
-            this.button1.TabIndex = 46;
-            this.button1.Text = "Salir";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnSalirNewPet.BackColor = System.Drawing.Color.Gold;
+            this.btnSalirNewPet.Location = new System.Drawing.Point(730, 447);
+            this.btnSalirNewPet.Name = "btnSalirNewPet";
+            this.btnSalirNewPet.Size = new System.Drawing.Size(100, 30);
+            this.btnSalirNewPet.TabIndex = 46;
+            this.btnSalirNewPet.Text = "Salir";
+            this.btnSalirNewPet.UseVisualStyleBackColor = false;
+            this.btnSalirNewPet.Click += new System.EventHandler(this.btnSalirNewPet_Click);
             // 
-            // button2
+            // btnAddNewPet
             // 
-            this.button2.BackColor = System.Drawing.Color.Gold;
-            this.button2.Location = new System.Drawing.Point(876, 448);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 30);
-            this.button2.TabIndex = 47;
-            this.button2.Text = "Añadir";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnAddNewPet.BackColor = System.Drawing.Color.Gold;
+            this.btnAddNewPet.Location = new System.Drawing.Point(860, 448);
+            this.btnAddNewPet.Name = "btnAddNewPet";
+            this.btnAddNewPet.Size = new System.Drawing.Size(100, 30);
+            this.btnAddNewPet.TabIndex = 62;
+            this.btnAddNewPet.Text = "Añadir";
+            this.btnAddNewPet.UseVisualStyleBackColor = false;
+            this.btnAddNewPet.Click += new System.EventHandler(this.btnAddNewPet_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Veterinaria.Properties.Resources.newPetIcon;
+            this.pictureBox1.Location = new System.Drawing.Point(328, 47);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(128, 120);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 60;
+            this.pictureBox1.TabStop = false;
             // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btnAddNewPet);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.newFotoPet);
@@ -277,8 +279,7 @@
             this.Controls.Add(this.newSexPet);
             this.Controls.Add(this.newEspeciePet);
             this.Controls.Add(this.newNamePet);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSalirNewPet);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
@@ -315,7 +316,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSalirNewPet;
+        private System.Windows.Forms.Button addNewPet;
+        private System.Windows.Forms.Button btnAddNewPet;
     }
 }

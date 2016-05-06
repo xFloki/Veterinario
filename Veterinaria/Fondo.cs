@@ -74,20 +74,24 @@ namespace Veterinaria
         private void button4_Click(object sender, EventArgs e)
         {
             resetearBotones(sender);
-            userControl11.Enabled = true;
-            userControl11.BringToFront();
-            userControl11.Visible = true;
+          
             
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             resetearBotones(sender);
+            mascotas1.Enabled = true;
+            mascotas1.BringToFront();
+            mascotas1.Visible = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             resetearBotones(sender);
+            userControl11.Enabled = true;
+            userControl11.BringToFront();
+            userControl11.Visible = true;
         }
 
         private void button5_Click(object sender, EventArgs e)

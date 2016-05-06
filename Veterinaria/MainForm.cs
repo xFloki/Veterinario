@@ -294,8 +294,7 @@ namespace Veterinaria
 
         private void button4_Click(object sender, EventArgs e)
         {
-            NewPet nuevaMascota = new NewPet();
-            nuevaMascota.Show();
+           
         }
 
         private void button3_Click(object sender, EventArgs e)

@@ -43,6 +43,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.userControl11 = new Veterinaria.UserControl1();
+            this.mascotas1 = new Veterinaria.Mascotas();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -67,7 +68,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(233, 36);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Nuevo Cliente";
+            this.button1.Text = "Clientes";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -80,7 +81,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(233, 36);
             this.button3.TabIndex = 3;
-            this.button3.Text = "Nuevo Cliente";
+            this.button3.Text = "Mascotas";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -93,7 +94,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(233, 36);
             this.button5.TabIndex = 5;
-            this.button5.Text = "Nuevo Cliente";
+            this.button5.Text = "Tienda";
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -106,7 +107,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(234, 36);
             this.button2.TabIndex = 6;
-            this.button2.Text = "Nuevo Cliente";
+            this.button2.Text = "NuevaMascota";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -207,6 +208,16 @@
             this.userControl11.TabIndex = 15;
             this.userControl11.Visible = false;
             // 
+            // mascotas1
+            // 
+            this.mascotas1.BackColor = System.Drawing.Color.White;
+            this.mascotas1.Enabled = false;
+            this.mascotas1.Location = new System.Drawing.Point(518, 267);
+            this.mascotas1.Name = "mascotas1";
+            this.mascotas1.Size = new System.Drawing.Size(1062, 619);
+            this.mascotas1.TabIndex = 16;
+            this.mascotas1.Visible = false;
+            // 
             // Fondo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,6 +236,7 @@
             this.Controls.Add(this.veterinariaNombre);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.userControl11);
+            this.Controls.Add(this.mascotas1);
             this.Name = "Fondo";
             this.Text = "g";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -251,5 +263,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label2;
         private UserControl1 userControl11;
+        private Mascotas mascotas1;
     }
 }

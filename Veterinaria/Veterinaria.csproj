@@ -60,11 +60,11 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewPet.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Mascotas.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="NewPet.Designer.cs">
-      <DependentUpon>NewPet.cs</DependentUpon>
+    <Compile Include="Mascotas.Designer.cs">
+      <DependentUpon>Mascotas.cs</DependentUpon>
     </Compile>
     <Compile Include="NewClient.cs">
       <SubType>Form</SubType>
@@ -98,8 +98,8 @@
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewPet.resx">
-      <DependentUpon>NewPet.cs</DependentUpon>
+    <EmbeddedResource Include="Mascotas.resx">
+      <DependentUpon>Mascotas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewClient.resx">
       <DependentUpon>NewClient.cs</DependentUpon>
