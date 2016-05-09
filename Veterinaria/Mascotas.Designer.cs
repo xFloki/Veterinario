@@ -307,7 +307,7 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Location = new System.Drawing.Point(15, 52);
+            this.panel2.Location = new System.Drawing.Point(30, 49);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(170, 25);
             this.panel2.TabIndex = 42;

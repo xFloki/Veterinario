@@ -57,9 +57,9 @@
             // 
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label9.Location = new System.Drawing.Point(484, 80);
+            this.label9.Location = new System.Drawing.Point(436, 79);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(380, 52);
+            this.label9.Size = new System.Drawing.Size(298, 52);
             this.label9.TabIndex = 61;
             this.label9.Text = "Nueva Mascota";
             // 
@@ -122,7 +122,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(280, 447);
+            this.dateTimePicker1.Location = new System.Drawing.Point(280, 452);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(282, 26);
             this.dateTimePicker1.TabIndex = 53;
@@ -252,7 +252,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Veterinaria.Properties.Resources.newPetIcon;
-            this.pictureBox1.Location = new System.Drawing.Point(328, 47);
+            this.pictureBox1.Location = new System.Drawing.Point(280, 46);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(128, 120);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

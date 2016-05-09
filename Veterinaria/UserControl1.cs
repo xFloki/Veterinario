@@ -27,6 +27,7 @@ namespace Veterinaria
         public UserControl1()
         {
             InitializeComponent();
+            cargaPropietarios();
         }
 
         private void addPet()
@@ -55,6 +56,7 @@ namespace Veterinaria
 
         }
 
+        //Carga los propietarios en un comboBox para que se seleecione como propietario a un cliente ya existente
         private void cargaPropietarios()
         {
             try
@@ -71,7 +73,7 @@ namespace Veterinaria
                 {
                     string sName = resultado.GetString("dni");
                     newPropietarioPet.Items.Add(sName);
-                    newPropietarioPet.Text = sName;
+                    //newPropietarioPet.Text = sName;
 
                 }
 
