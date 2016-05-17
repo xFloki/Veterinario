@@ -1,6 +1,6 @@
 ﻿namespace Veterinaria
 {
-    partial class UserControl1
+    partial class NuevaMascota
     {
         /// <summary> 
         /// Required designer variable.

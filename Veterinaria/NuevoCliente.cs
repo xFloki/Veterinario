@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Veterinaria
 {
-    public partial class UserControl2 : UserControl
+    public partial class NuevoCliente : UserControl
     {
-        public UserControl2()
+        public NuevoCliente()
         {
             InitializeComponent();
         }

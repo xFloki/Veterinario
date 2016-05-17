@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace Veterinaria
 {
-    public partial class UserControl1 : UserControl
+    public partial class NuevaMascota : UserControl
     {
 
         //parametros de la conexion
@@ -24,7 +24,7 @@ namespace Veterinaria
         private static MySqlCommand comando;
         //guarda el resultado de la consultam, es un arrayList
         private MySqlDataReader resultado;
-        public UserControl1()
+        public NuevaMascota()
         {
             InitializeComponent();
             cargaPropietarios();

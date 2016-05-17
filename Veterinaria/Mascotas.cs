@@ -173,7 +173,7 @@ namespace Veterinaria
 
         private void button4_Click(object sender, EventArgs e)
         {
-            UserControl1 prueba = new UserControl1();
+            NuevaMascota prueba = new NuevaMascota();
             prueba.Show();
             prueba.Enabled = true;
             prueba.BringToFront();

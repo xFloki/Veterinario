@@ -40,11 +40,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
-            this.userControl11 = new Veterinaria.UserControl1();
-            this.mascotas1 = new Veterinaria.Mascotas();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.userControl21 = new Veterinaria.UserControl2();
+            this.NuevaMascota1 = new Veterinaria.NuevaMascota();
+            this.mascotas1 = new Veterinaria.Mascotas();
+            this.Clientes1 = new Veterinaria.Clientes();
+            this.nuevoCliente1 = new Veterinaria.NuevoCliente();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -179,26 +180,6 @@
             this.label2.TabIndex = 14;
             this.label2.Text = "Menu";
             // 
-            // userControl11
-            // 
-            this.userControl11.BackColor = System.Drawing.Color.White;
-            this.userControl11.Enabled = false;
-            this.userControl11.Location = new System.Drawing.Point(518, 267);
-            this.userControl11.Name = "userControl11";
-            this.userControl11.Size = new System.Drawing.Size(1062, 619);
-            this.userControl11.TabIndex = 15;
-            this.userControl11.Visible = false;
-            // 
-            // mascotas1
-            // 
-            this.mascotas1.BackColor = System.Drawing.Color.White;
-            this.mascotas1.Enabled = false;
-            this.mascotas1.Location = new System.Drawing.Point(518, 267);
-            this.mascotas1.Name = "mascotas1";
-            this.mascotas1.Size = new System.Drawing.Size(1062, 619);
-            this.mascotas1.TabIndex = 16;
-            this.mascotas1.Visible = false;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::Veterinaria.Properties.Resources.inicio;
@@ -219,20 +200,48 @@
             this.pictureBox2.TabIndex = 12;
             this.pictureBox2.TabStop = false;
             // 
-            // userControl21
+            // NuevaMascota1
             // 
-            this.userControl21.BackColor = System.Drawing.Color.White;
-            this.userControl21.Location = new System.Drawing.Point(175, 83);
-            this.userControl21.Name = "userControl21";
-            this.userControl21.Size = new System.Drawing.Size(906, 529);
-            this.userControl21.TabIndex = 17;
+            this.NuevaMascota1.BackColor = System.Drawing.Color.White;
+            this.NuevaMascota1.Enabled = false;
+            this.NuevaMascota1.Location = new System.Drawing.Point(518, 267);
+            this.NuevaMascota1.Name = "NuevaMascota1";
+            this.NuevaMascota1.Size = new System.Drawing.Size(1062, 619);
+            this.NuevaMascota1.TabIndex = 15;
+            this.NuevaMascota1.Visible = false;
+            // 
+            // mascotas1
+            // 
+            this.mascotas1.BackColor = System.Drawing.Color.White;
+            this.mascotas1.Enabled = false;
+            this.mascotas1.Location = new System.Drawing.Point(518, 267);
+            this.mascotas1.Name = "mascotas1";
+            this.mascotas1.Size = new System.Drawing.Size(1062, 619);
+            this.mascotas1.TabIndex = 16;
+            this.mascotas1.Visible = false;
+            // 
+            // Clientes1
+            // 
+            this.Clientes1.BackColor = System.Drawing.Color.White;
+            this.Clientes1.Enabled = false;
+            this.Clientes1.Location = new System.Drawing.Point(518, 267);
+            this.Clientes1.Name = "Clientes1";
+            this.Clientes1.Size = new System.Drawing.Size(1062, 619);
+            this.Clientes1.TabIndex = 17;
+            this.Clientes1.Visible = false;
+            // 
+            // nuevoCliente1
+            // 
+            this.nuevoCliente1.Location = new System.Drawing.Point(518, 267);
+            this.nuevoCliente1.Name = "nuevoCliente1";
+            this.nuevoCliente1.Size = new System.Drawing.Size(1062, 619);
+            this.nuevoCliente1.TabIndex = 18;
             // 
             // Fondo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1042);
-            this.Controls.Add(this.userControl21);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -245,8 +254,10 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.veterinariaNombre);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.userControl11);
             this.Controls.Add(this.mascotas1);
+            this.Controls.Add(this.Clientes1);
+            this.Controls.Add(this.nuevoCliente1);
+            this.Controls.Add(this.NuevaMascota1);
             this.Name = "Fondo";
             this.Text = "g";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -272,8 +283,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label2;
-        private UserControl1 userControl11;
+        private NuevaMascota NuevaMascota1;
         private Mascotas mascotas1;
-        private UserControl2 userControl21;
+        private Clientes Clientes1;
+        private NuevoCliente nuevoCliente1;
     }
 }

@@ -84,19 +84,25 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NuevoCliente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NuevoCliente.Designer.cs">
+      <DependentUpon>NuevoCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserControl1.cs">
+    <Compile Include="NuevaMascota.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControl1.Designer.cs">
-      <DependentUpon>UserControl1.cs</DependentUpon>
+    <Compile Include="NuevaMascota.Designer.cs">
+      <DependentUpon>NuevaMascota.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControl2.cs">
+    <Compile Include="Clientes.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControl2.Designer.cs">
-      <DependentUpon>UserControl2.cs</DependentUpon>
+    <Compile Include="Clientes.Designer.cs">
+      <DependentUpon>Clientes.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Fondo.resx">
       <DependentUpon>Fondo.cs</DependentUpon>
@@ -116,16 +122,19 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NuevoCliente.resx">
+      <DependentUpon>NuevoCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControl1.resx">
-      <DependentUpon>UserControl1.cs</DependentUpon>
+    <EmbeddedResource Include="NuevaMascota.resx">
+      <DependentUpon>NuevaMascota.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControl2.resx">
-      <DependentUpon>UserControl2.cs</DependentUpon>
+    <EmbeddedResource Include="Clientes.resx">
+      <DependentUpon>Clientes.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
@@ -160,6 +169,7 @@
     <None Include="Copia de Resources\search.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\usersIcon.png" />
     <None Include="Resources\newPetIcon.png" />
     <None Include="Resources\logo1.jpg" />
     <None Include="Resources\fondo.jpg" />

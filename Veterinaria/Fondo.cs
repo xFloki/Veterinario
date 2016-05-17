@@ -52,16 +52,21 @@ namespace Veterinaria
         private void button1_Click(object sender, EventArgs e)
         {
 
-            Button btn = (Button)sender;
-            if (btn.ForeColor == Color.Black)
-            {
-                MainForm contenido = new MainForm();
-                contenido.Show();
+            //Button btn = (Button)sender;
+            //if (btn.ForeColor == Color.Black)
+            //{
+            //    MainForm contenido = new MainForm();
+            //    contenido.Show();
 
-            }
+            //}
+            //resetearBotones(sender);
+
             resetearBotones(sender);
-           
-                    
+            Clientes1.Enabled = true;
+            Clientes1.BringToFront();
+            Clientes1.Visible = true;
+
+
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -74,8 +79,10 @@ namespace Veterinaria
         private void button4_Click(object sender, EventArgs e)
         {
             resetearBotones(sender);
-          
-            
+            nuevoCliente1.Enabled = true;
+            nuevoCliente1.BringToFront();
+            nuevoCliente1.Visible = true;
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -89,9 +96,9 @@ namespace Veterinaria
         private void button2_Click(object sender, EventArgs e)
         {
             resetearBotones(sender);
-            userControl11.Enabled = true;
-            userControl11.BringToFront();
-            userControl11.Visible = true;
+            NuevaMascota1.Enabled = true;
+            NuevaMascota1.BringToFront();
+            NuevaMascota1.Visible = true;
         }
 
         private void button5_Click(object sender, EventArgs e)
