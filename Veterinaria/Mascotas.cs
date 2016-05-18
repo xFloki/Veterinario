@@ -32,15 +32,17 @@ namespace Veterinaria
 
 
         private DataTable datos = new DataTable();
-        private int id_Mascota = 1;
+        public int id_Mascota = 1;
 
 
         public Mascotas()
         {
             InitializeComponent();
             cargarMascota();
+           
         }
 
+        
         private void cambiarDatosMascota()
         {
             string nombre_Mascota = nombreMascota.Text;
@@ -66,7 +68,8 @@ namespace Veterinaria
             deshabilitarDatosMascota();
         }
 
-        private void cargarMascota()
+        //Publico para cuando estemos en el userControl de usuarios y clickeemos en su mascota la podemos cargar desde ahi 
+        public void cargarMascota()
         {
 
             connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
@@ -161,13 +164,13 @@ namespace Veterinaria
 
         private void button6_Click(object sender, EventArgs e)
         {
-            --id_Mascota;
+            //--id_Mascota;
             cargarMascota();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            ++id_Mascota;
+            //++id_Mascota;
             cargarMascota();
         }
 
@@ -178,6 +181,7 @@ namespace Veterinaria
             prueba.Enabled = true;
             prueba.BringToFront();
             prueba.Visible = true;
+            
         }
 
     }

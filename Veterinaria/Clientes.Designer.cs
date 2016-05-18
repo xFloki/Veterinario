@@ -34,7 +34,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.clienteDni = new System.Windows.Forms.TextBox();
             this.mascotaCliente = new System.Windows.Forms.ComboBox();
@@ -54,6 +53,8 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.saveButtonCliente = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -71,6 +72,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1062, 216);
             this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
             // Borrar
             // 
@@ -97,6 +99,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(20, 20);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // textBox1
             // 
@@ -108,21 +111,13 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(896, 181);
+            this.button2.Location = new System.Drawing.Point(886, 157);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(80, 23);
             this.button2.TabIndex = 7;
             this.button2.Text = "Actualizar";
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(658, 181);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(188, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Nuevo Cliente\r\n";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button8
             // 
@@ -131,6 +126,7 @@
             this.button8.Size = new System.Drawing.Size(27, 28);
             this.button8.TabIndex = 72;
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click_1);
             // 
             // clienteDni
             // 
@@ -281,11 +277,34 @@
             this.pictureBox2.TabIndex = 73;
             this.pictureBox2.TabStop = false;
             // 
+            // saveButtonCliente
+            // 
+            this.saveButtonCliente.Location = new System.Drawing.Point(722, 157);
+            this.saveButtonCliente.Name = "saveButtonCliente";
+            this.saveButtonCliente.Size = new System.Drawing.Size(75, 23);
+            this.saveButtonCliente.TabIndex = 76;
+            this.saveButtonCliente.Text = "Save";
+            this.saveButtonCliente.UseVisualStyleBackColor = true;
+            this.saveButtonCliente.Visible = false;
+            this.saveButtonCliente.Click += new System.EventHandler(this.saveButtonCliente_Click);
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(803, 157);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(75, 23);
+            this.button10.TabIndex = 75;
+            this.button10.Text = "Editar";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
             // Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.saveButtonCliente);
+            this.Controls.Add(this.button10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.button8);
@@ -308,7 +327,6 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Name = "Clientes";
             this.Size = new System.Drawing.Size(1062, 619);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -329,7 +347,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.TextBox clienteDni;
         private System.Windows.Forms.ComboBox mascotaCliente;
@@ -349,5 +366,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button saveButtonCliente;
+        private System.Windows.Forms.Button button10;
     }
 }

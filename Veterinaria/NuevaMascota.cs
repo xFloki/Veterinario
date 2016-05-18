@@ -49,7 +49,8 @@ namespace Veterinaria
             //abre la conexion
             conn.Open();
 
-            comando = new MySqlCommand("INSERT INTO `mascota` VALUES ('" + id + "','" + nombre + "','" + pasport + "','" + sexo + "','" + especie + "','" + chip +
+            comando = new MySqlCommand("INSERT INTO `mascota` (nombre,`pasport`,sexo,especie,chip,propietario,raza,fecha_nacimiento,foto)  VALUES ('"
+                + nombre + "','" + pasport + "','" + sexo + "','" + especie + "','" + chip +
                 "','" + propietario + "','" + raza + "','" + fecha + "','" + foto + "')", conn);
             comando.ExecuteNonQuery();
             conn.Close();

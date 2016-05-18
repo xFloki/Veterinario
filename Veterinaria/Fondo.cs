@@ -12,14 +12,37 @@ namespace Veterinaria
 {
     public partial class Fondo : Form
     {
+       
+
         public Fondo()
         {
+            
             InitializeComponent();
-            pictureBox2.SendToBack();
+            //Creamos un eventHandler al que le pasamos una evento de click para poder ejecutar desde este form el evento de click
+            // de un boton que se encuentra en el el UserControl "Clientes1"
+            Clientes1.StatusUpdated += new EventHandler(cargarMascotaSeleccionada);
             
-            
+            //picturebox2.sendtoback();
+
+
         }
-   
+
+        
+
+        public void cargarMascotaSeleccionada(object sender, EventArgs e )
+        {
+            resetearBotones(button3);
+            
+            mascotas1.Enabled = true;
+            mascotas1.BringToFront();
+            mascotas1.Visible = true;
+
+            mascotas1.id_Mascota = Clientes1.mascotaClienteAhorita();
+            mascotas1.cargarMascota();
+            
+
+        }
+      
 
         private void resetearBotones(object sender)
         {
@@ -41,7 +64,10 @@ namespace Veterinaria
 
             
         }
+      
+    
 
+      
 
         //Sobrescrimibos el metodo de el cierre del form ya que queremos que cuando lo cerremos no solo cerremos este form sino toda la aplicacion
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -60,11 +86,12 @@ namespace Veterinaria
 
             //}
             //resetearBotones(sender);
-
+           
             resetearBotones(sender);
             Clientes1.Enabled = true;
             Clientes1.BringToFront();
             Clientes1.Visible = true;
+          
 
 
         }

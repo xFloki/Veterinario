@@ -232,6 +232,7 @@
             // 
             // nuevoCliente1
             // 
+            this.nuevoCliente1.BackColor = System.Drawing.Color.White;
             this.nuevoCliente1.Location = new System.Drawing.Point(518, 267);
             this.nuevoCliente1.Name = "nuevoCliente1";
             this.nuevoCliente1.Size = new System.Drawing.Size(1062, 619);
