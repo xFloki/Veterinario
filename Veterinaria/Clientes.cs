@@ -40,9 +40,10 @@ namespace Veterinaria
             InitializeComponent();
             autoCompletar();
             cargaClientes();
-           
+            
+            }
 
-        }
+     
 
         //metodo para poder seleccionar la mascota del usuario que estemos viendo y con esto pasarle el ide al usercontrol de las mascotas para que lo cargue
         public int mascotaClienteAhorita() {
@@ -242,6 +243,10 @@ namespace Veterinaria
             var item = dataGridView1.Rows[e.RowIndex].Cells[1].Value;
             busquedaCliente = item.ToString();
             cargarCliente();
+            //commpruebo que se haya clickeado el boton de borrar usuario
+            if (e.ColumnIndex == 0) {
+                MessageBox.Show("YOLO NIGGA");             
+            }
 
         }
 
