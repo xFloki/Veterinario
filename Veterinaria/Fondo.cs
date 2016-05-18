@@ -18,7 +18,7 @@ namespace Veterinaria
         {
             
             InitializeComponent();
-            this.ownerForm = ownerForm;
+            //this.ownerForm = ownerForm;
             //Creamos un eventHandler al que le pasamos una evento de click para poder ejecutar desde este form el evento de click
             // de un boton que se encuentra en el el UserControl "Clientes1"
             Clientes1.StatusUpdated += new EventHandler(cargarMascotaSeleccionada);
