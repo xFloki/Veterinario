@@ -12,27 +12,33 @@ namespace Veterinaria
 {
     public partial class Fondo : Form
     {
-       
-
-        public Fondo()
+        int tipo;
+        Form2 ownerForm = null;
+        public Fondo( )
         {
             
             InitializeComponent();
+            this.ownerForm = ownerForm;
             //Creamos un eventHandler al que le pasamos una evento de click para poder ejecutar desde este form el evento de click
             // de un boton que se encuentra en el el UserControl "Clientes1"
             Clientes1.StatusUpdated += new EventHandler(cargarMascotaSeleccionada);
-            
+            //tipo = this.ownerForm.tipo;
+            comprobarPrivilegios();
             //picturebox2.sendtoback();
 
 
         }
 
         //Se comprueba que tipo de usuario es para en funcion de sus privilegios mostrar unos elementos u otros 
-        //private void comprobarPrivilegios() {
-        //    if(Form1.tipo
-        //}
+        private void comprobarPrivilegios()
+        {
+            if (tipo == 1) {
+                button6.Enabled = true;
+                button6.Visible = true;
+            }
+        }
 
-        
+
 
         public void cargarMascotaSeleccionada(object sender, EventArgs e )
         {

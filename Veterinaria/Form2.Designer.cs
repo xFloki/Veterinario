@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.login1 = new Veterinaria.Login();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,12 +45,21 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // login1
+            // 
+            this.login1.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.login1.Location = new System.Drawing.Point(676, 311);
+            this.login1.Name = "login1";
+            this.login1.Size = new System.Drawing.Size(565, 364);
+            this.login1.TabIndex = 1;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(894, 512);
+            this.Controls.Add(this.login1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form2";
             this.Text = "Form2";
@@ -62,5 +72,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
+        private Login login1;
     }
 }

@@ -12,12 +12,15 @@ namespace Veterinaria
 {
     public partial class Form2 : Form
     {
+        public int tipo = 1;
+
         public Form2()
         {
             InitializeComponent();
-            Form1 formLogin = new Form1();
-            formLogin.Show();
-            formLogin.TopMost = true;
+            //Form1 formLogin = new Form1();
+            //formLogin.Show();
+            //formLogin.TopMost = true;
+            
             
         }
     }
