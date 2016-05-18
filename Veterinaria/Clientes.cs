@@ -104,13 +104,9 @@ namespace Veterinaria
             //Se puede realizar de esta manera con el adapter o coon un DataReader, me quedo con esta 
             MySqlDataAdapter sda = new MySqlDataAdapter("Select * from cliente", conn);
             conn.Close();
+            datos.Clear();
             sda.Fill(datos);
             dataGridView1.DataSource = datos;
-            //comando = new MySqlCommand("Select * from cliente", conn);
-            //resultado = comando.ExecuteReader();
-            //datos.Load(resultado);
-            //conn.Close();
-            //dataGridView1.DataSource = datos;
 
             dataGridView1.Columns["Borrar"].DisplayIndex = 7;
             //dataGridView1.Columns["ContactTitle"].DisplayIndex = 1;
@@ -174,6 +170,19 @@ namespace Veterinaria
             //dataGridView1.DataSource = datos;
         }
 
+        private void eliminarCliente() {
+          
+
+            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
+            conn = new MySqlConnection(connStr);
+            //abre la conexion
+            conn.Open();
+
+            comando = new MySqlCommand("delete  from veterinario.cliente where dni = '"+ busquedaCliente + "';", conn);
+            comando.ExecuteNonQuery();
+            conn.Close();
+        }
+
        
 
         private void habilitarDatosCliente()
@@ -225,16 +234,17 @@ namespace Veterinaria
      
         private void button2_Click(object sender, EventArgs e)
         {
-            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
-            conn = new MySqlConnection(connStr);
-            //abre la conexion
-            conn.Open();
-            //Se puede realizar de esta manera con el adapter o coon un DataReader, me quedo con esta 
-            MySqlDataAdapter sda = new MySqlDataAdapter("Select * from cliente", conn);
-            conn.Close();
-            datos.Clear();
-            sda.Fill(datos);
-            dataGridView1.DataSource = datos;
+            cargaClientes();
+            //connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
+            //conn = new MySqlConnection(connStr);
+            ////abre la conexion
+            //conn.Open();
+            ////Se puede realizar de esta manera con el adapter o coon un DataReader, me quedo con esta 
+            //MySqlDataAdapter sda = new MySqlDataAdapter("Select * from cliente", conn);
+            //conn.Close();
+            //datos.Clear();
+            //sda.Fill(datos);
+            //dataGridView1.DataSource = datos;
         }
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -245,7 +255,20 @@ namespace Veterinaria
             cargarCliente();
             //commpruebo que se haya clickeado el boton de borrar usuario
             if (e.ColumnIndex == 0) {
-                MessageBox.Show("YOLO NIGGA");             
+                DialogResult dr = MessageBox.Show("¿Esta seguro que desea elimar este usuario? Los datos no se podran recuperar",
+                    "OPERACION CRITICA", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (dr == DialogResult.Yes)
+                {
+                    eliminarCliente();
+                    MessageBox.Show("Cliente Eliminado Correctamente");
+                    cargaClientes();
+                }
+                else if (dr == DialogResult.No)
+                {
+                    
+                    saveButtonCliente.Hide();
+                }
             }
 
         }
