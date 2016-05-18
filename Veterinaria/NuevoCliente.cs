@@ -14,6 +14,8 @@ namespace Veterinaria
 {
     public partial class NuevoCliente : UserControl
     {
+
+        
         //parametros de la conexion
         private string connStr;
         //variable que maneja la conexion

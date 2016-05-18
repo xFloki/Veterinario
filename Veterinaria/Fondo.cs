@@ -8,23 +8,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Veterinaria
 {
+
     public partial class Fondo : Form
     {
-        int tipo;
-        Form2 ownerForm = null;
-        public Fondo( )
+        public  int tipoRecibido;
+        
+        public Fondo(int tipo )
         {
             
             InitializeComponent();
+            tipoRecibido = tipo;
             //this.ownerForm = ownerForm;
             //Creamos un eventHandler al que le pasamos una evento de click para poder ejecutar desde este form el evento de click
             // de un boton que se encuentra en el el UserControl "Clientes1"
             Clientes1.StatusUpdated += new EventHandler(cargarMascotaSeleccionada);
-            //tipo = this.ownerForm.tipo;
-            comprobarPrivilegios();
+            //tipo = this.ownerForm.tipo;          
+            comprobarPrivilegios();          
             //picturebox2.sendtoback();
+          
+            
 
 
         }
@@ -32,7 +37,9 @@ namespace Veterinaria
         //Se comprueba que tipo de usuario es para en funcion de sus privilegios mostrar unos elementos u otros 
         private void comprobarPrivilegios()
         {
-            if (tipo == 1) {
+
+            if (tipoRecibido == 1)
+            {
                 button6.Enabled = true;
                 button6.Visible = true;
             }
@@ -76,8 +83,7 @@ namespace Veterinaria
             
         }
       
-    
-
+   
       
 
         //Sobrescrimibos el metodo de el cierre del form ya que queremos que cuando lo cerremos no solo cerremos este form sino toda la aplicacion
@@ -159,5 +165,7 @@ namespace Veterinaria
         {
 
         }
+
+        
     }
 }

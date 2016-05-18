@@ -40,6 +40,7 @@ namespace Veterinaria
             InitializeComponent();
             autoCompletar();
             cargaClientes();
+           
             
             }
 
@@ -234,6 +235,7 @@ namespace Veterinaria
      
         private void button2_Click(object sender, EventArgs e)
         {
+          
             cargaClientes();
             //connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
             //conn = new MySqlConnection(connStr);

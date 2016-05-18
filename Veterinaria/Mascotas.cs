@@ -164,13 +164,13 @@ namespace Veterinaria
 
         private void button6_Click(object sender, EventArgs e)
         {
-            //--id_Mascota;
+            --id_Mascota;
             cargarMascota();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            //++id_Mascota;
+            ++id_Mascota;
             cargarMascota();
         }
 

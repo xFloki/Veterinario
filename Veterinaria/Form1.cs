@@ -18,6 +18,7 @@ namespace Veterinaria
     public partial class Form1 : Form
     {
 
+        int tipo = 0;
         //parametros de la conexion
         private string connStr;
         //variable que maneja la conexion
@@ -32,7 +33,7 @@ namespace Veterinaria
         private DataTable datos = new DataTable();
 
         //publico para que desde el form principal podamos acceder a esta variable y saber el tipo de usuario que acab de logear
-        public int tipo;
+      
 
         //int n = 0;
 
@@ -82,7 +83,7 @@ namespace Veterinaria
                     tipo = 1;
                 } else { tipo = 2; }
                 Application.OpenForms[1].Hide();
-                Fondo fondo = new Fondo();
+                Fondo fondo = new Fondo(tipo);
                 fondo.StartPosition = FormStartPosition.Manual;
                 fondo.Location = new Point(0, 0);
                 fondo.Show();

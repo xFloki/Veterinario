@@ -42,11 +42,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.button6 = new System.Windows.Forms.Button();
             this.mascotas1 = new Veterinaria.Mascotas();
             this.Clientes1 = new Veterinaria.Clientes();
             this.nuevoCliente1 = new Veterinaria.NuevoCliente();
             this.NuevaMascota1 = new Veterinaria.NuevaMascota();
-            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -201,6 +201,20 @@
             this.pictureBox2.TabIndex = 12;
             this.pictureBox2.TabStop = false;
             // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.button6.Enabled = false;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.Color.Black;
+            this.button6.Location = new System.Drawing.Point(47, 666);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(233, 36);
+            this.button6.TabIndex = 19;
+            this.button6.Text = "Admin Usuarios";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Visible = false;
+            // 
             // mascotas1
             // 
             this.mascotas1.BackColor = System.Drawing.Color.White;
@@ -238,20 +252,6 @@
             this.NuevaMascota1.Size = new System.Drawing.Size(1062, 619);
             this.NuevaMascota1.TabIndex = 15;
             this.NuevaMascota1.Visible = false;
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.button6.Enabled = false;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.Black;
-            this.button6.Location = new System.Drawing.Point(47, 666);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(233, 36);
-            this.button6.TabIndex = 19;
-            this.button6.Text = "Admin Usuarios";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Visible = false;
             // 
             // Fondo
             // 
