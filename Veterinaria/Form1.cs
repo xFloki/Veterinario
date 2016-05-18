@@ -31,6 +31,9 @@ namespace Veterinaria
 
         private DataTable datos = new DataTable();
 
+        //publico para que desde el form principal podamos acceder a esta variable y saber el tipo de usuario que acab de logear
+        public int tipo;
+
         //int n = 0;
 
        
@@ -75,13 +78,10 @@ namespace Veterinaria
                 //        Application.OpenForms[1].Close;
                 //    }
                 //}
+                if (comboBox1.Text == "anna66") {
+                    tipo = 1;
+                } else { tipo = 2; }
                 Application.OpenForms[1].Hide();
-                //Application.OpenForms[1].WindowState = FormWindowState.Normal ;
-                //Application.OpenForms[1].FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-                //Application.OpenForms[1].Width = 800;
-                //Application.OpenForms[1].Height = 800;
-                //Application.OpenForms[1].TopMost = true;
-                //contenido.Show();
                 Fondo fondo = new Fondo();
                 fondo.StartPosition = FormStartPosition.Manual;
                 fondo.Location = new Point(0, 0);

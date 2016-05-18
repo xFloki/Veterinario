@@ -42,10 +42,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.NuevaMascota1 = new Veterinaria.NuevaMascota();
             this.mascotas1 = new Veterinaria.Mascotas();
             this.Clientes1 = new Veterinaria.Clientes();
             this.nuevoCliente1 = new Veterinaria.NuevoCliente();
+            this.NuevaMascota1 = new Veterinaria.NuevaMascota();
+            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -131,7 +132,7 @@
             this.button7.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.Color.Black;
-            this.button7.Location = new System.Drawing.Point(46, 690);
+            this.button7.Location = new System.Drawing.Point(46, 817);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(96, 36);
             this.button7.TabIndex = 9;
@@ -144,7 +145,7 @@
             this.button8.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ForeColor = System.Drawing.Color.Black;
-            this.button8.Location = new System.Drawing.Point(190, 690);
+            this.button8.Location = new System.Drawing.Point(190, 817);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(90, 36);
             this.button8.TabIndex = 10;
@@ -200,16 +201,6 @@
             this.pictureBox2.TabIndex = 12;
             this.pictureBox2.TabStop = false;
             // 
-            // NuevaMascota1
-            // 
-            this.NuevaMascota1.BackColor = System.Drawing.Color.White;
-            this.NuevaMascota1.Enabled = false;
-            this.NuevaMascota1.Location = new System.Drawing.Point(518, 267);
-            this.NuevaMascota1.Name = "NuevaMascota1";
-            this.NuevaMascota1.Size = new System.Drawing.Size(1062, 619);
-            this.NuevaMascota1.TabIndex = 15;
-            this.NuevaMascota1.Visible = false;
-            // 
             // mascotas1
             // 
             this.mascotas1.BackColor = System.Drawing.Color.White;
@@ -238,11 +229,36 @@
             this.nuevoCliente1.Size = new System.Drawing.Size(1062, 619);
             this.nuevoCliente1.TabIndex = 18;
             // 
+            // NuevaMascota1
+            // 
+            this.NuevaMascota1.BackColor = System.Drawing.Color.White;
+            this.NuevaMascota1.Enabled = false;
+            this.NuevaMascota1.Location = new System.Drawing.Point(518, 267);
+            this.NuevaMascota1.Name = "NuevaMascota1";
+            this.NuevaMascota1.Size = new System.Drawing.Size(1062, 619);
+            this.NuevaMascota1.TabIndex = 15;
+            this.NuevaMascota1.Visible = false;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.button6.Enabled = false;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.Color.Black;
+            this.button6.Location = new System.Drawing.Point(47, 666);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(233, 36);
+            this.button6.TabIndex = 19;
+            this.button6.Text = "Admin Usuarios";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Visible = false;
+            // 
             // Fondo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1042);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -288,5 +304,6 @@
         private Mascotas mascotas1;
         private Clientes Clientes1;
         private NuevoCliente nuevoCliente1;
+        private System.Windows.Forms.Button button6;
     }
 }

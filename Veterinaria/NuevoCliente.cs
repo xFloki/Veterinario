@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Security.Cryptography;
 
 namespace Veterinaria
 {
@@ -40,6 +41,11 @@ namespace Veterinaria
             //abre la conexion
             conn.Open();
 
+            //var salt = System.Text.Encoding.UTF8.GetBytes("salero");
+            //var password = System.Text.Encoding.UTF8.GetBytes(telefono);
+            //var hmacMD5 = new HMACMD5(salt);
+            //var saltedHash = hmacMD5.ComputeHash(password);
+
             comando = new MySqlCommand("INSERT INTO `cliente` VALUES ('" + dni + "','" + nombre + "','" + apellido + "','" + email + "','" + telefono + "','" + direccion + "','" + fecha + "')", conn);
             comando.ExecuteNonQuery();
             conn.Close();
@@ -47,8 +53,8 @@ namespace Veterinaria
             MySqlDataAdapter sda = new MySqlDataAdapter("Select * from cliente", conn);
             //Se puede realizar de esta manera con el adapter o coon un DataReader, me quedo con esta 
             //MySqlDataAdapter sda = new MySqlDataAdapter("INSERT INTO `cliente` VALUES ('"+dni+"','"+nombre+ "','" + apellido + "','" + email + "','" + telefono + "','" + direccion + "','" + fecha + "')", conn);
-
-
+           
+            
 
         }
 

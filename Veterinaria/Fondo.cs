@@ -27,6 +27,11 @@ namespace Veterinaria
 
         }
 
+        //Se comprueba que tipo de usuario es para en funcion de sus privilegios mostrar unos elementos u otros 
+        //private void comprobarPrivilegios() {
+        //    if(Form1.tipo
+        //}
+
         
 
         public void cargarMascotaSeleccionada(object sender, EventArgs e )

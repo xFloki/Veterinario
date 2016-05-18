@@ -43,7 +43,7 @@ namespace Veterinaria
             
             }
 
-     
+        
 
         //metodo para poder seleccionar la mascota del usuario que estemos viendo y con esto pasarle el ide al usercontrol de las mascotas para que lo cargue
         public int mascotaClienteAhorita() {
