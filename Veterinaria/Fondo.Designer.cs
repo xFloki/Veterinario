@@ -39,14 +39,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.button6 = new System.Windows.Forms.Button();
             this.mascotas1 = new Veterinaria.Mascotas();
             this.Clientes1 = new Veterinaria.Clientes();
             this.nuevoCliente1 = new Veterinaria.NuevoCliente();
             this.NuevaMascota1 = new Veterinaria.NuevaMascota();
-            this.button5 = new System.Windows.Forms.Button();
+            this.admineUsers1 = new Veterinaria.AdmineUsers();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -168,6 +168,21 @@
             this.label2.TabIndex = 14;
             this.label2.Text = "Menu";
             // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.button5.Enabled = false;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.Black;
+            this.button5.Location = new System.Drawing.Point(46, 681);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(233, 36);
+            this.button5.TabIndex = 5;
+            this.button5.Text = "Admin Usuarios";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Visible = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::Veterinaria.Properties.Resources.inicio;
@@ -187,20 +202,6 @@
             this.pictureBox2.Size = new System.Drawing.Size(1916, 1050);
             this.pictureBox2.TabIndex = 12;
             this.pictureBox2.TabStop = false;
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.button6.Enabled = false;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.Black;
-            this.button6.Location = new System.Drawing.Point(47, 666);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(233, 36);
-            this.button6.TabIndex = 19;
-            this.button6.Text = "Admin Usuarios";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Visible = false;
             // 
             // mascotas1
             // 
@@ -240,25 +241,18 @@
             this.NuevaMascota1.TabIndex = 15;
             this.NuevaMascota1.Visible = false;
             // 
-            // button5
+            // admineUsers1
             // 
-            this.button5.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.Black;
-            this.button5.Location = new System.Drawing.Point(47, 605);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(233, 36);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Tienda";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.admineUsers1.Location = new System.Drawing.Point(518, 267);
+            this.admineUsers1.Name = "admineUsers1";
+            this.admineUsers1.Size = new System.Drawing.Size(1062, 612);
+            this.admineUsers1.TabIndex = 19;
             // 
             // Fondo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1042);
-            this.Controls.Add(this.button6);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -275,6 +269,7 @@
             this.Controls.Add(this.Clientes1);
             this.Controls.Add(this.nuevoCliente1);
             this.Controls.Add(this.NuevaMascota1);
+            this.Controls.Add(this.admineUsers1);
             this.Name = "Fondo";
             this.Text = "g";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -303,7 +298,7 @@
         private Mascotas mascotas1;
         private Clientes Clientes1;
         private NuevoCliente nuevoCliente1;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
+        private AdmineUsers admineUsers1;
     }
 }

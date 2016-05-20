@@ -43,12 +43,26 @@ namespace Veterinaria
             //abre la conexion
             conn.Open();
 
+            MD5 md5 = new MD5CryptoServiceProvider();
+            //compute hash from the bytes of text
+            md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(telefono));
+            //get hash result after compute it
+            byte[] result = md5.Hash;
+            StringBuilder strBuilder = new StringBuilder();
+            for (int i = 0; i < result.Length; i++)
+            {
+                //change it into 2 hexadecimal digits
+                //for each byte
+                strBuilder.Append(result[i].ToString("x2"));
+            }
+            string telefono2 = strBuilder.ToString();
+
             //var salt = System.Text.Encoding.UTF8.GetBytes("salero");
             //var password = System.Text.Encoding.UTF8.GetBytes(telefono);
             //var hmacMD5 = new HMACMD5(salt);
             //var saltedHash = hmacMD5.ComputeHash(password);
 
-            comando = new MySqlCommand("INSERT INTO `cliente` VALUES ('" + dni + "','" + nombre + "','" + apellido + "','" + email + "','" + telefono + "','" + direccion + "','" + fecha + "')", conn);
+            comando = new MySqlCommand("INSERT INTO `cliente` VALUES ('" + dni + "','" + nombre + "','" + apellido + "','" + email + "','" + telefono2 + "','" + direccion + "','" + fecha + "')", conn);
             comando.ExecuteNonQuery();
             conn.Close();
             //Se puede realizar de esta manera con el adapter o coon un DataReader, me quedo con esta 

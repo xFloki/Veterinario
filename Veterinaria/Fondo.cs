@@ -40,8 +40,8 @@ namespace Veterinaria
 
             if (tipoRecibido == 1)
             {
-                button6.Enabled = true;
-                button6.Visible = true;
+                button5.Enabled = true;
+                button5.Visible = true;
             }
         }
 
@@ -148,6 +148,10 @@ namespace Veterinaria
         private void button5_Click(object sender, EventArgs e)
         {
             resetearBotones(sender);
+            admineUsers1.Enabled = true;
+            admineUsers1.BringToFront();
+            admineUsers1.Visible = true;
+
         }
 
         private void button8_Click(object sender, EventArgs e)

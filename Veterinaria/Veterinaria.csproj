@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdmineUsers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdmineUsers.Designer.cs">
+      <DependentUpon>AdmineUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fondo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     <Compile Include="Clientes.Designer.cs">
       <DependentUpon>Clientes.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdmineUsers.resx">
+      <DependentUpon>AdmineUsers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Fondo.resx">
       <DependentUpon>Fondo.cs</DependentUpon>
     </EmbeddedResource>
@@ -178,6 +187,7 @@
     <None Include="Copia de Resources\search.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\trabajador.png" />
     <None Include="Resources\usersIcon.png" />
     <None Include="Resources\newPetIcon.png" />
     <None Include="Resources\logo1.jpg" />
