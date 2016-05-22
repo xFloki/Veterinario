@@ -26,10 +26,10 @@ namespace Veterinaria
             // de un boton que se encuentra en el el UserControl "Clientes1"
             Clientes1.StatusUpdated += new EventHandler(cargarMascotaSeleccionada);
             //tipo = this.ownerForm.tipo;          
-            comprobarPrivilegios();          
+            //comprobarPrivilegios();
             //picturebox2.sendtoback();
-          
-            
+
+
 
 
         }

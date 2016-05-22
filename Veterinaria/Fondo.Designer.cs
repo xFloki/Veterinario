@@ -60,7 +60,7 @@
             this.veterinariaNombre.Name = "veterinariaNombre";
             this.veterinariaNombre.Size = new System.Drawing.Size(646, 71);
             this.veterinariaNombre.TabIndex = 0;
-            this.veterinariaNombre.Text = "Veterinaria Cantero";
+            this.veterinariaNombre.Text = "Veterinaria Canter";
             // 
             // button1
             // 
@@ -174,7 +174,7 @@
             this.button5.Enabled = false;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.Black;
-            this.button5.Location = new System.Drawing.Point(46, 681);
+            this.button5.Location = new System.Drawing.Point(291, 866);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(233, 36);
             this.button5.TabIndex = 5;

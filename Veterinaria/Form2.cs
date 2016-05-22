@@ -12,14 +12,12 @@ namespace Veterinaria
 {
     public partial class Form2 : Form
     {
-        public static int enviandoPalabra = 1;
+       
 
         public Form2()
         {
             InitializeComponent();
-            //Form1 formLogin = new Form1();
-            //formLogin.Show();
-            //formLogin.TopMost = true;
+            
             
             
             

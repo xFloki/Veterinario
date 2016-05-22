@@ -18,7 +18,7 @@ namespace Veterinaria
     public partial class Form1 : Form
     {
 
-        int tipo = 0;
+        int tipo;
         //parametros de la conexion
         private string connStr;
         //variable que maneja la conexion
@@ -64,24 +64,24 @@ namespace Veterinaria
             datos.Clear();
             MySqlDataAdapter sda = new MySqlDataAdapter("Select * from usuario where login='" + comboBox1.Text + "' and pass='" + textBox1.Text + "';", conn);
             sda.Fill(datos);
-            conn.Close();
+           
             if (datos.Rows.Count == 1)
             {
+
                 //MessageBox.Show("Bien");
-               //MainForm contenido = new MainForm();
-                
-                //lo llamo con this porque con Form1 no lo cosnigo 
+                datos.Clear();
+                 sda = new MySqlDataAdapter("Select tipo from usuario where login='" + comboBox1.Text + "' and pass='" + textBox1.Text + "';", conn);
+                sda.Fill(datos);
+
+                DataTable dt = new DataTable();
+                tipo = (from DataRow dr in dt.Rows
+                          where (string)dr["login"] == comboBox1.Text
+                          select (int)dr["tipo"]).FirstOrDefault();
                 this.Hide();
-                //for (int index = Application.OpenForms.Count - 1; index >= 0; index--)
-                //{
-                //    if (Application.OpenForms[1].Name == "Form2")
-                //    {
-                //        Application.OpenForms[1].Close;
-                //    }
-                //}
-                if (comboBox1.Text == "anna66") {
-                    tipo = 1;
-                } else { tipo = 2; }
+
+
+               
+               
                 Application.OpenForms[1].Hide();
                 Fondo fondo = new Fondo(tipo);
                 fondo.StartPosition = FormStartPosition.Manual;
@@ -94,8 +94,9 @@ namespace Veterinaria
             else {
                 //MessageBox.Show("Mal");
             }
-    
-            
+            conn.Close();
+
+
         }
 
         private void Fillcombo()
