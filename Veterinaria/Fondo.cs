@@ -14,19 +14,21 @@ namespace Veterinaria
 
     public partial class Fondo : Form
     {
-        public  int tipoRecibido;
+        private  int tipoRecibido;
         
-        public Fondo(int tipo )
+        public Fondo(int tipo)
         {
             
             InitializeComponent();
-            tipoRecibido = tipo;
+            comprobarPrivilegios();
+            MessageBox.Show("tengo tipo " + tipo);
             //this.ownerForm = ownerForm;
             //Creamos un eventHandler al que le pasamos una evento de click para poder ejecutar desde este form el evento de click
             // de un boton que se encuentra en el el UserControl "Clientes1"
             Clientes1.StatusUpdated += new EventHandler(cargarMascotaSeleccionada);
+           
             //tipo = this.ownerForm.tipo;          
-            //comprobarPrivilegios();
+
             //picturebox2.sendtoback();
 
 
@@ -38,7 +40,7 @@ namespace Veterinaria
         private void comprobarPrivilegios()
         {
 
-            if (tipoRecibido == 1)
+            if (tipoRecibido == 2)
             {
                 button5.Enabled = true;
                 button5.Visible = true;
@@ -157,6 +159,7 @@ namespace Veterinaria
         private void button8_Click(object sender, EventArgs e)
         {
             resetearBotones(sender);
+            Application.Restart();
         }
 
         private void timer1_Tick(object sender, EventArgs e)

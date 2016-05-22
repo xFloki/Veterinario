@@ -71,7 +71,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(233, 36);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Clientes";
+            this.button1.Text = "Cliente";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -174,7 +174,7 @@
             this.button5.Enabled = false;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.Black;
-            this.button5.Location = new System.Drawing.Point(291, 866);
+            this.button5.Location = new System.Drawing.Point(47, 691);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(233, 36);
             this.button5.TabIndex = 5;

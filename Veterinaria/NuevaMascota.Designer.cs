@@ -61,7 +61,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(298, 52);
             this.label9.TabIndex = 61;
-            this.label9.Text = "Nueva Mascota";
+            this.label9.Text = "Nueva Mascot";
             // 
             // newFotoPet
             // 
@@ -259,7 +259,7 @@
             this.pictureBox1.TabIndex = 60;
             this.pictureBox1.TabStop = false;
             // 
-            // UserControl1
+            // NuevaMascota
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -286,7 +286,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Name = "UserControl1";
+            this.Name = "NuevaMascota";
             this.Size = new System.Drawing.Size(1062, 619);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

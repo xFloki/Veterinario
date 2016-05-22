@@ -45,8 +45,9 @@ namespace Veterinaria
             this.CenterToScreen();
             Fillcombo();
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-
             
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -69,21 +70,17 @@ namespace Veterinaria
             {
 
                 //MessageBox.Show("Bien");
-                datos.Clear();
-                 sda = new MySqlDataAdapter("Select tipo from usuario where login='" + comboBox1.Text + "' and pass='" + textBox1.Text + "';", conn);
-                sda.Fill(datos);
+               
 
-                DataTable dt = new DataTable();
-                tipo = (from DataRow dr in dt.Rows
-                          where (string)dr["login"] == comboBox1.Text
-                          select (int)dr["tipo"]).FirstOrDefault();
+            
                 this.Hide();
+               
 
 
                
                
                 Application.OpenForms[1].Hide();
-                Fondo fondo = new Fondo(tipo);
+                Fondo fondo = new Fondo(0);
                 fondo.StartPosition = FormStartPosition.Manual;
                 fondo.Location = new Point(0, 0);
                 fondo.Show();

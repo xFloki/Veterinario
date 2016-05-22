@@ -90,6 +90,14 @@ namespace Veterinaria
             conn.Close();
             if (datos.Rows.Count == 1)
             {
+
+                comando = new MySqlCommand("Select tipo from usuario where login = " + comboBox1.Text, conn);
+                resultado = comando.ExecuteReader();
+
+                resultado.Read();
+                tipo = resultado.GetInt32(0);
+
+
                 //MessageBox.Show("Bien");
                 //MainForm contenido = new MainForm();
 
@@ -102,10 +110,7 @@ namespace Veterinaria
                 //        Application.OpenForms[1].Close;
                 //    }
                 //}
-                if (comboBox1.Text == "anna66")
-                {
-                    tipo = 1;
-                }
+               
                 
                 Application.OpenForms[0].Hide();
                 Fondo fondo = new Fondo(tipo);
