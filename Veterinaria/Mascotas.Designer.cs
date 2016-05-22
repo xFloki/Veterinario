@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pasaporteMascota = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -52,7 +52,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -64,6 +63,7 @@
             this.propietarioMascota = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.nuevaVisita1 = new Veterinaria.NuevaVisita();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -155,6 +155,7 @@
             this.button5.TabIndex = 62;
             this.button5.Text = "Nueva\r\n\r\nVisita";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // razaMascota
             // 
@@ -209,8 +210,8 @@
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(200, 490);
@@ -291,16 +292,6 @@
             this.label2.Size = new System.Drawing.Size(71, 20);
             this.label2.TabIndex = 45;
             this.label2.Text = "Nombre";
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(827, 49);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(183, 23);
-            this.button4.TabIndex = 44;
-            this.button4.Text = "Nueva mascota";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -409,6 +400,16 @@
             this.pictureBox1.TabIndex = 72;
             this.pictureBox1.TabStop = false;
             // 
+            // nuevaVisita1
+            // 
+            this.nuevaVisita1.BackColor = System.Drawing.Color.White;
+            this.nuevaVisita1.Enabled = false;
+            this.nuevaVisita1.Location = new System.Drawing.Point(326, 155);
+            this.nuevaVisita1.Name = "nuevaVisita1";
+            this.nuevaVisita1.Size = new System.Drawing.Size(697, 291);
+            this.nuevaVisita1.TabIndex = 77;
+            this.nuevaVisita1.Visible = false;
+            // 
             // Mascotas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -443,9 +444,9 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.nuevaVisita1);
             this.Name = "Mascotas";
             this.Size = new System.Drawing.Size(1062, 619);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -485,7 +486,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -497,5 +497,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox propietarioMascota;
         private System.Windows.Forms.Button button1;
+        private NuevaVisita nuevaVisita1;
     }
 }

@@ -41,7 +41,9 @@ namespace Veterinaria
             Clientes1.StatusUpdated += new EventHandler(cargarMascotaSeleccionada);
             //Otros event handler para poder administrar eventos de boton que se encuentra en los user control
             mascotas1.StatusUpdated += new EventHandler(cargarClienteSeleccionado);
+            
             admineUsers1.StatusUpdated += new EventHandler(cargarNuevoUsuario);
+
             //tipo = this.ownerForm.tipo;          
 
             //picturebox2.sendtoback();

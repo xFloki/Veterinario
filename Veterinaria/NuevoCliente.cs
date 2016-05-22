@@ -66,5 +66,12 @@ namespace Veterinaria
         {
             addClient();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            this.SendToBack();
+            this.Enabled = false;
+        }
     }
 }

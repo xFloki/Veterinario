@@ -277,12 +277,12 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.veterinariaNombre);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.mascotas1);
             this.Controls.Add(this.Clientes1);
             this.Controls.Add(this.nuevoCliente1);
             this.Controls.Add(this.NuevaMascota1);
             this.Controls.Add(this.admineUsers1);
             this.Controls.Add(this.nuevoUsuario1);
+            this.Controls.Add(this.mascotas1);
             this.Name = "Fondo";
             this.Text = "g";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

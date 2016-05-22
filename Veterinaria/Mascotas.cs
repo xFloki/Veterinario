@@ -40,6 +40,7 @@ namespace Veterinaria
         public Mascotas()
         {
             InitializeComponent();
+            nuevaVisita1.StatusUpdated += new EventHandler(addNuevaVisita);
             cargarMascota();
             autoCompletar();
             
@@ -47,9 +48,39 @@ namespace Veterinaria
 
         }
 
+        public void addNuevaVisita(object sender, EventArgs e)
+        {
+
+            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
+            conn = new MySqlConnection(connStr);
+            //abre la conexion
+            conn.Open();
+
+            comando = new MySqlCommand("INSERT INTO  visita (mascota, motivo, fecha, observaciones) VALUES ('"
+                + idMascota.Text + "','" + nuevaVisita1.motivo() + "', current_date() ,'" + nuevaVisita1.observaciones() + "' );", conn);
+            comando.ExecuteNonQuery();
+            conn.Close();
+            nuevaVisita1.Enabled = false;
+            nuevaVisita1.SendToBack();
+            nuevaVisita1.Visible = false;
+
+            cargarVisitas();
+        }
+
+        //metodo public para pasarle al form el propietario actual
         public string clienteActual() {
 
             return propietarioMascota.Text;
+        }
+
+        
+
+        private void ocultarVisitas()
+        {
+            nuevaVisita1.Enabled = false;
+            nuevaVisita1.Visible = false;
+            nuevaVisita1.SendToBack();
+
         }
 
         private void autoCompletar()
@@ -94,8 +125,7 @@ namespace Veterinaria
             conn = new MySqlConnection(connStr);
             //abre la conexion
             conn.Open();
-            //Se puede realizar de esta manera con el adapter o coon un DataReader, me quedo con esta 
-            MySqlDataAdapter sda = new MySqlDataAdapter("Select fecha, motivo, id from visita where mascota = '" + idMascota.Text + "'", conn);
+            MySqlDataAdapter sda = new MySqlDataAdapter("Select fecha, motivo, id from visita where mascota = '" + idMascota.Text + "' order by fecha desc", conn);
             conn.Close();
             datos.Clear();
             sda.Fill(datos);
@@ -260,12 +290,14 @@ namespace Veterinaria
         {
             --id_Mascota;
             cargarMascota();
+            ocultarVisitas();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             ++id_Mascota;
             cargarMascota();
+            ocultarVisitas();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -331,13 +363,16 @@ namespace Veterinaria
                 }
                 resultado.Close();
                 conn.Close();
+                ocultarVisitas();
                 //dataGridView1.DataSource = datos;
 
             }
             else { 
                 id_Mascota = 1;
               cargarMascota();
+                ocultarVisitas();
             }
+
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -352,6 +387,13 @@ namespace Veterinaria
                        
             //commpruebo que se haya clickeado el boton de borrar usuario
            
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            nuevaVisita1.Enabled = true;
+            nuevaVisita1.Visible = true;
+            nuevaVisita1.BringToFront();
         }
     }
 }
