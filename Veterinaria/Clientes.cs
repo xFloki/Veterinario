@@ -25,7 +25,7 @@ namespace Veterinaria
         //guarda el resultado de la consultam, es un arrayList
         private MySqlDataReader resultado;
 
-        private string busquedaCliente = "SUUUUUUU";
+        public string busquedaCliente = "SUUUUUUU";
         private DataTable datos = new DataTable();
         
       
@@ -40,7 +40,7 @@ namespace Veterinaria
             InitializeComponent();
             autoCompletar();
             cargaClientes();
-            dataGridView1.ClearSelection();
+            
 
 
 
@@ -122,7 +122,7 @@ namespace Veterinaria
         }
 
         //Carga los datos del cliente que has seleccionado en el DataGridView en los texbox del tabcontrol3, el que se encuentra junto a este
-        private void cargarCliente()
+        public void cargarCliente()
         {
             connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
             conn = new MySqlConnection(connStr);
@@ -182,9 +182,28 @@ namespace Veterinaria
             //abre la conexion
             conn.Open();
 
-            comando = new MySqlCommand("delete  from veterinario.cliente where dni = '"+ busquedaCliente + "';", conn);
-            comando.ExecuteNonQuery();
+           
+            sentencia_SQL = "Select * from mascota where propietario = '" + busquedaCliente + "'";
+            comando = new MySqlCommand(sentencia_SQL, conn);
+            resultado = comando.ExecuteReader();
+
+
+          
+            //Condicion para que no se puedan eliminat clientes que tienen asociadas mascotas
+            if (resultado.Read())
+            {
+                MessageBox.Show("Elimine antes las mascotas de este cliente");
+                resultado.Close();
+            }
+            else {
+                resultado.Close();
+                comando = new MySqlCommand("delete  from veterinario.cliente where dni = '" + busquedaCliente + "';", conn);
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Cliente Eliminado Correctamente");
+            }
             conn.Close();
+            
+          
         }
 
        
@@ -266,7 +285,6 @@ namespace Veterinaria
                 if (dr == DialogResult.Yes)
                 {
                     eliminarCliente();
-                    MessageBox.Show("Cliente Eliminado Correctamente");
                     cargaClientes();
                 }
                 else if (dr == DialogResult.No)

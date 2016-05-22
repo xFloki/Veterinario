@@ -47,6 +47,7 @@
             this.nuevoCliente1 = new Veterinaria.NuevoCliente();
             this.NuevaMascota1 = new Veterinaria.NuevaMascota();
             this.admineUsers1 = new Veterinaria.AdmineUsers();
+            this.nuevoUsuario1 = new Veterinaria.NuevoUsuario();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -216,6 +217,7 @@
             // Clientes1
             // 
             this.Clientes1.BackColor = System.Drawing.Color.White;
+            this.Clientes1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Clientes1.Enabled = false;
             this.Clientes1.Location = new System.Drawing.Point(518, 267);
             this.Clientes1.Name = "Clientes1";
@@ -248,6 +250,16 @@
             this.admineUsers1.Size = new System.Drawing.Size(1062, 612);
             this.admineUsers1.TabIndex = 19;
             // 
+            // nuevoUsuario1
+            // 
+            this.nuevoUsuario1.BackColor = System.Drawing.Color.White;
+            this.nuevoUsuario1.Enabled = false;
+            this.nuevoUsuario1.Location = new System.Drawing.Point(518, 267);
+            this.nuevoUsuario1.Name = "nuevoUsuario1";
+            this.nuevoUsuario1.Size = new System.Drawing.Size(1062, 619);
+            this.nuevoUsuario1.TabIndex = 20;
+            this.nuevoUsuario1.Visible = false;
+            // 
             // Fondo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,6 +282,7 @@
             this.Controls.Add(this.nuevoCliente1);
             this.Controls.Add(this.NuevaMascota1);
             this.Controls.Add(this.admineUsers1);
+            this.Controls.Add(this.nuevoUsuario1);
             this.Name = "Fondo";
             this.Text = "g";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -300,5 +313,6 @@
         private NuevoCliente nuevoCliente1;
         private System.Windows.Forms.Button button5;
         private AdmineUsers admineUsers1;
+        private NuevoUsuario nuevoUsuario1;
     }
 }

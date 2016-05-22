@@ -28,21 +28,100 @@ namespace Veterinaria
         //guarda el resultado de la consultam, es un arrayList
         private MySqlDataReader resultado;
 
-        private string busquedaCliente = "SUUUUUUU";
+
+        public event EventHandler StatusUpdated;
 
 
         private DataTable datos = new DataTable();
         public int id_Mascota = 1;
+        private string idObservacion;
 
 
         public Mascotas()
         {
             InitializeComponent();
             cargarMascota();
-           
+            autoCompletar();
+            
+
+
         }
 
-        
+        public string clienteActual() {
+
+            return propietarioMascota.Text;
+        }
+
+        private void autoCompletar()
+        {
+            textBox2.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            textBox2.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+
+
+            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
+            conn = new MySqlConnection(connStr);
+            //abre la conexion
+            try
+            {
+                conn.Open();
+                sentencia_SQL = "select * from mascota";
+                comando = new MySqlCommand(sentencia_SQL, conn);
+                resultado = comando.ExecuteReader();
+                while (resultado.Read())
+                {
+                    string sName = resultado.GetString("pasport");
+                    coll.Add(sName);
+
+                }
+                conn.Close();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            textBox2.AutoCompleteCustomSource = coll;
+
+        }
+
+        private void cargarVisitas()
+        {
+
+            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
+            conn = new MySqlConnection(connStr);
+            //abre la conexion
+            conn.Open();
+            //Se puede realizar de esta manera con el adapter o coon un DataReader, me quedo con esta 
+            MySqlDataAdapter sda = new MySqlDataAdapter("Select fecha, motivo, id from visita where mascota = '" + idMascota.Text + "'", conn);
+            conn.Close();
+            datos.Clear();
+            sda.Fill(datos);
+            dataGridView2.DataSource = datos;
+            //Ocultamos el id porque es algo que no necesitamos que vea el usuario simplemente lo vamos a usar nosotro en el codigo para
+            //realizar la busqueda de esa visita a la hora de mostrar las observaciones
+            dataGridView2.Columns[2].Visible = false;
+
+            //Si la mascota tiene almenos una visita nos cargara las observaciones de la ultima, de lo contrario nos podran las observaciones vacias
+            try
+            {
+                var item = dataGridView2.Rows[0].Cells[2].Value;
+                idObservacion = item.ToString();
+                datosVisitas();
+            }
+            catch (Exception)
+	{
+                textBox1.Text = "";
+               
+            }
+            
+
+
+        }
+
+
         private void cambiarDatosMascota()
         {
             string nombre_Mascota = nombreMascota.Text;
@@ -95,6 +174,7 @@ namespace Veterinaria
                 nacimientoMascota.Text = resultado.GetString("fecha_nacimiento");
                 razaMascota.Text = resultado.GetString("raza");
                 fotoMascotaUrl = resultado.GetString("foto");
+                propietarioMascota.Text = resultado.GetString("propietario");
 
                 //Para que el programa no se quede esperando al principio mientras descarga la primera imagen la de la mascota 
                 //la descargamos 
@@ -112,6 +192,7 @@ namespace Veterinaria
             resultado.Close();
             conn.Close();
             //dataGridView1.DataSource = datos;
+            cargarVisitas();
 
         }
 
@@ -134,6 +215,19 @@ namespace Veterinaria
             chipMascota.ReadOnly = true;
             nacimientoMascota.Enabled = false;
             razaMascota.ReadOnly = true;
+        }
+
+        private void  datosVisitas()
+        {
+            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
+            conn = new MySqlConnection(connStr);
+            //abre la conexion
+            conn.Open();
+            comando = new MySqlCommand("Select observaciones from visita where id = '" + idObservacion + "'", conn);
+            resultado = comando.ExecuteReader();
+            resultado.Read();
+            textBox1.Text = resultado.GetString("observaciones") ;
+
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -184,5 +278,80 @@ namespace Veterinaria
             
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (this.StatusUpdated != null)
+                this.StatusUpdated(new object(), new EventArgs());
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+            
+            if (textBox2 != null && !string.IsNullOrWhiteSpace(textBox2.Text))
+            {
+
+                connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
+                conn = new MySqlConnection(connStr);
+                //abre la conexion
+                conn.Open();
+                comando = new MySqlCommand("Select * from mascota where pasport = '" + textBox2.Text + "'", conn);
+                resultado = comando.ExecuteReader();
+                //datos.Load(resultado);
+                if (resultado.Read())
+                {
+                    //El deshabilitar que se puedan modificar el id y el pasaporte de la mascota lo colocamos aqui en vez de en el metodo
+                    //deshabilitarDatosMascota() puesto que solo lo vamos a poner una vez, estos datos nunca los vamos a modificar
+                    string fotoMascotaUrl;
+                    idMascota.Text = resultado.GetString("id");
+                    idMascota.ReadOnly = true;
+                    nombreMascota.Text = resultado.GetString("nombre");
+                    sexoMascota.Text = resultado.GetString("sexo");
+                    especieMascota.Text = resultado.GetString("especie");
+                    chipMascota.Text = resultado.GetString("chip");
+                    pasaporteMascota.Text = resultado.GetString("pasport");
+                    pasaporteMascota.ReadOnly = true;
+                    nacimientoMascota.Text = resultado.GetString("fecha_nacimiento");
+                    razaMascota.Text = resultado.GetString("raza");
+                    fotoMascotaUrl = resultado.GetString("foto");
+                    propietarioMascota.Text = resultado.GetString("propietario");
+
+                    //Para que el programa no se quede esperando al principio mientras descarga la primera imagen la de la mascota 
+                    //la descargamos 
+                    WebClient wc = new WebClient();
+                    wc.Proxy = null;
+                    byte[] bFile = wc.DownloadData((String)resultado.GetString("foto"));
+                    MemoryStream ms = new MemoryStream(bFile);
+                    Image img = Image.FromStream(ms);
+                    fotoMascota.Image = img;
+                    //fotoMascota.Load("http://fress.co/wp-content/uploads/2014/05/Animales-cansados-15.jpg");
+                    //Scalamos la imagen para que quede bien en nuestro pictureBox
+                    fotoMascota.SizeMode = PictureBoxSizeMode.Zoom;
+                    deshabilitarDatosMascota();
+                }
+                resultado.Close();
+                conn.Close();
+                //dataGridView1.DataSource = datos;
+
+            }
+            else { 
+                id_Mascota = 1;
+              cargarMascota();
+            }
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //if para que el evento solo se ejectue cuando se hace click sobre una de las celdas que no sean cabeceras
+            if (e.RowIndex != -1)
+            {
+                var item = dataGridView2.Rows[e.RowIndex].Cells[2].Value;
+                idObservacion = item.ToString();
+                datosVisitas();
+            }
+                       
+            //commpruebo que se haya clickeado el boton de borrar usuario
+           
+        }
     }
 }

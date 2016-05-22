@@ -29,14 +29,9 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.saveButtonCliente = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
             this.clienteDni = new System.Windows.Forms.TextBox();
-            this.mascotaCliente = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.direccionCliente = new System.Windows.Forms.TextBox();
             this.nombreCliente = new System.Windows.Forms.TextBox();
@@ -52,34 +47,18 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Borrar = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // saveButtonCliente
-            // 
-            this.saveButtonCliente.Location = new System.Drawing.Point(722, 150);
-            this.saveButtonCliente.Name = "saveButtonCliente";
-            this.saveButtonCliente.Size = new System.Drawing.Size(75, 23);
-            this.saveButtonCliente.TabIndex = 100;
-            this.saveButtonCliente.Text = "Save";
-            this.saveButtonCliente.UseVisualStyleBackColor = true;
-            this.saveButtonCliente.Visible = false;
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(803, 150);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
-            this.button10.TabIndex = 99;
-            this.button10.Text = "Editar";
-            this.button10.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
@@ -91,28 +70,13 @@
             this.label9.TabIndex = 98;
             this.label9.Text = "Empleados";
             // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(896, 305);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(27, 28);
-            this.button8.TabIndex = 96;
-            this.button8.UseVisualStyleBackColor = true;
-            // 
             // clienteDni
             // 
             this.clienteDni.Location = new System.Drawing.Point(180, 245);
             this.clienteDni.Name = "clienteDni";
+            this.clienteDni.ReadOnly = true;
             this.clienteDni.Size = new System.Drawing.Size(186, 20);
             this.clienteDni.TabIndex = 95;
-            // 
-            // mascotaCliente
-            // 
-            this.mascotaCliente.FormattingEnabled = true;
-            this.mascotaCliente.Location = new System.Drawing.Point(708, 310);
-            this.mascotaCliente.Name = "mascotaCliente";
-            this.mascotaCliente.Size = new System.Drawing.Size(182, 21);
-            this.mascotaCliente.TabIndex = 94;
             // 
             // dateTimePicker1
             // 
@@ -120,15 +84,6 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(229, 20);
             this.dateTimePicker1.TabIndex = 93;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(627, 318);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(59, 13);
-            this.label19.TabIndex = 92;
-            this.label19.Text = "Mascotas: ";
             // 
             // label18
             // 
@@ -143,6 +98,7 @@
             // 
             this.direccionCliente.Location = new System.Drawing.Point(708, 275);
             this.direccionCliente.Name = "direccionCliente";
+            this.direccionCliente.ReadOnly = true;
             this.direccionCliente.Size = new System.Drawing.Size(182, 20);
             this.direccionCliente.TabIndex = 90;
             // 
@@ -150,6 +106,7 @@
             // 
             this.nombreCliente.Location = new System.Drawing.Point(180, 181);
             this.nombreCliente.Name = "nombreCliente";
+            this.nombreCliente.ReadOnly = true;
             this.nombreCliente.Size = new System.Drawing.Size(186, 20);
             this.nombreCliente.TabIndex = 89;
             // 
@@ -157,6 +114,7 @@
             // 
             this.telefonoCliente.Location = new System.Drawing.Point(180, 315);
             this.telefonoCliente.Name = "telefonoCliente";
+            this.telefonoCliente.ReadOnly = true;
             this.telefonoCliente.Size = new System.Drawing.Size(186, 20);
             this.telefonoCliente.TabIndex = 88;
             // 
@@ -164,6 +122,7 @@
             // 
             this.emailCliente.Location = new System.Drawing.Point(180, 284);
             this.emailCliente.Name = "emailCliente";
+            this.emailCliente.ReadOnly = true;
             this.emailCliente.Size = new System.Drawing.Size(186, 20);
             this.emailCliente.TabIndex = 87;
             // 
@@ -171,6 +130,7 @@
             // 
             this.apellidoCliente.Location = new System.Drawing.Point(180, 216);
             this.apellidoCliente.Name = "apellidoCliente";
+            this.apellidoCliente.ReadOnly = true;
             this.apellidoCliente.Size = new System.Drawing.Size(186, 20);
             this.apellidoCliente.TabIndex = 86;
             // 
@@ -240,13 +200,17 @@
             this.Borrar});
             this.dataGridView1.Location = new System.Drawing.Point(0, 403);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1062, 216);
             this.dataGridView1.TabIndex = 77;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // Borrar
             // 
             this.Borrar.HeaderText = "Eliminar";
             this.Borrar.Name = "Borrar";
+            this.Borrar.ReadOnly = true;
             this.Borrar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Borrar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
@@ -260,6 +224,16 @@
             this.panel1.Size = new System.Drawing.Size(170, 25);
             this.panel1.TabIndex = 79;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Veterinaria.Properties.Resources.search;
+            this.pictureBox1.Location = new System.Drawing.Point(147, 1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // textBox1
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -270,12 +244,13 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(886, 150);
+            this.button2.Location = new System.Drawing.Point(884, 135);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(80, 23);
+            this.button2.Size = new System.Drawing.Size(114, 23);
             this.button2.TabIndex = 78;
             this.button2.Text = "Actualizar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // pictureBox2
             // 
@@ -287,28 +262,44 @@
             this.pictureBox2.TabIndex = 97;
             this.pictureBox2.TabStop = false;
             // 
-            // pictureBox1
+            // button1
             // 
-            this.pictureBox1.Image = global::Veterinaria.Properties.Resources.search;
-            this.pictureBox1.Location = new System.Drawing.Point(147, 1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.button1.Location = new System.Drawing.Point(753, 135);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(114, 23);
+            this.button1.TabIndex = 101;
+            this.button1.Text = "Nuevo Usuario";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(708, 312);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(182, 20);
+            this.textBox2.TabIndex = 103;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(619, 315);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(33, 13);
+            this.label1.TabIndex = 102;
+            this.label1.Text = "Login";
             // 
             // AdmineUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.saveButtonCliente);
-            this.Controls.Add(this.button10);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.button8);
             this.Controls.Add(this.clienteDni);
-            this.Controls.Add(this.mascotaCliente);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.direccionCliente);
             this.Controls.Add(this.nombreCliente);
@@ -329,24 +320,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button saveButtonCliente;
-        private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.TextBox clienteDni;
-        private System.Windows.Forms.ComboBox mascotaCliente;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox direccionCliente;
         private System.Windows.Forms.TextBox nombreCliente;
@@ -365,5 +350,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label1;
     }
 }

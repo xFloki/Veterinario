@@ -1,4 +1,17 @@
-﻿using System;
+﻿
+// AUTOR : ALEJANDRO DIETTA MARTIN 1ºDAM 
+// Este programa es una aplicacion para la gestion de una veterinaria, el destinatario son las personas que se estan encargando de las mascotas, veterinarios, o administradores
+// del sistema. Hay un Super Usuario cuyo login es 'ADMIN' pass '1234' y con el cual podemos añadir o eliminar nuevos usuarios, en el caso de que despiados a nuevos profesionales
+// y ya no necesitemos su cuenta o si queremos contratar mas y nevesitamos nuevos accesos. Los usuarios normales pueden crear nuevo clientes, modificarlos (algunos datos como el id
+// que poseen dentro de la base de datos no se pueden modificar), añadir nuevas mascotas (su propietario debera estar guardaado previamenete en la base de datos, mediante este 
+// programa se puede hacer, de lo contrario no podremos ingresar la mascota), modificar datos de las mascotas existentes, comprobar el registro de sus visitas al veterinario, 
+// añadir nuevas visitas... al la hora de introdudir la foto de la mascota podremos hacerlo o bien poniendo una url de una foto de internet png de la mascota o seleccionando un archivo
+// de imagen dentro de nuestro ordenador. A la hora de buscar clientes podemos usar el autocompletar y desde los clientes en su perfil podremos acceder a la mascota que deseemos
+// Las contraseñas de los usuarios guardan cifradas en la base de datos por lo que lo ideal ese introducir desde el programa a todos los usuarios o bien pasar la contraseña ya cifrada
+// en el script de la BDD puesto que si introducimos una no cifrada a la hora de hacer la comprobacion del login nos dara incorrecto ya que comprueba cifrando la que le pasamos 
+
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,13 +33,15 @@ namespace Veterinaria
         {
             
             InitializeComponent();
+            tipoRecibido = tipo;
             comprobarPrivilegios();
-            MessageBox.Show("tengo tipo " + tipo);
             //this.ownerForm = ownerForm;
             //Creamos un eventHandler al que le pasamos una evento de click para poder ejecutar desde este form el evento de click
             // de un boton que se encuentra en el el UserControl "Clientes1"
             Clientes1.StatusUpdated += new EventHandler(cargarMascotaSeleccionada);
-           
+            //Otros event handler para poder administrar eventos de boton que se encuentra en los user control
+            mascotas1.StatusUpdated += new EventHandler(cargarClienteSeleccionado);
+            admineUsers1.StatusUpdated += new EventHandler(cargarNuevoUsuario);
             //tipo = this.ownerForm.tipo;          
 
             //picturebox2.sendtoback();
@@ -36,15 +51,37 @@ namespace Veterinaria
 
         }
 
+        public void cargarNuevoUsuario(object sender, EventArgs e)
+        {
+            
+            nuevoUsuario1.Enabled = true;
+            nuevoUsuario1.BringToFront();
+            nuevoUsuario1.Visible = true;
+            }
+
         //Se comprueba que tipo de usuario es para en funcion de sus privilegios mostrar unos elementos u otros 
         private void comprobarPrivilegios()
         {
 
-            if (tipoRecibido == 2)
+            if (tipoRecibido == 1)
             {
                 button5.Enabled = true;
                 button5.Visible = true;
             }
+        }
+
+        public void cargarClienteSeleccionado(object sender, EventArgs e)
+        {
+            resetearBotones(button1);
+
+            Clientes1.Enabled = true;
+            Clientes1.BringToFront();
+            Clientes1.Visible = true;
+
+            Clientes1.busquedaCliente = mascotas1.clienteActual();
+            Clientes1.cargarCliente(); 
+
+
         }
 
 

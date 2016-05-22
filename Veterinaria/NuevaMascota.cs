@@ -34,7 +34,6 @@ namespace Veterinaria
         {
             string nombre = newNamePet.Text;
             string sexo = newSexPet.Text;
-            string id = "";
             string especie = newEspeciePet.Text;
             string chip = newChipPet.Text;
             string raza = newRazaPet.Text;

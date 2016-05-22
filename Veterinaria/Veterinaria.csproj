@@ -78,12 +78,6 @@
     <Compile Include="Mascotas.Designer.cs">
       <DependentUpon>Mascotas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="NuevoCliente.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -124,9 +118,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mascotas.resx">
       <DependentUpon>Mascotas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NuevoCliente.resx">
       <DependentUpon>NuevoCliente.cs</DependentUpon>
@@ -178,12 +169,15 @@
     <None Include="Copia de Resources\search.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\mascotaPequeña.jpg" />
     <None Include="Resources\trabajador.png" />
     <None Include="Resources\usersIcon.png" />
     <None Include="Resources\newPetIcon.png" />
     <None Include="Resources\logo1.jpg" />
     <None Include="Resources\fondo.jpg" />
     <None Include="Resources\fondo1.jpg" />
+    <None Include="Resources\gatu.png" />
+    <None Include="Resources\amo.png" />
     <Content Include="Resources\inicio.jpg" />
     <None Include="Resources\inicio1.jpg" />
     <None Include="Resources\inicio2.jpg" />
