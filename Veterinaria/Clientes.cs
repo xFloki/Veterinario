@@ -40,8 +40,11 @@ namespace Veterinaria
             InitializeComponent();
             autoCompletar();
             cargaClientes();
-           
-            
+            dataGridView1.ClearSelection();
+
+
+
+
             }
 
         

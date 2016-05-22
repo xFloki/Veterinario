@@ -78,12 +78,6 @@
     <Compile Include="Mascotas.Designer.cs">
       <DependentUpon>Mascotas.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewClient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NewClient.Designer.cs">
-      <DependentUpon>NewClient.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +95,12 @@
     </Compile>
     <Compile Include="NuevoCliente.Designer.cs">
       <DependentUpon>NuevoCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NuevoUsuario.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NuevoUsuario.Designer.cs">
+      <DependentUpon>NuevoUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -131,9 +131,6 @@
     <EmbeddedResource Include="Mascotas.resx">
       <DependentUpon>Mascotas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewClient.resx">
-      <DependentUpon>NewClient.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -142,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NuevoCliente.resx">
       <DependentUpon>NuevoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuevoUsuario.resx">
+      <DependentUpon>NuevoUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

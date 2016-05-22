@@ -61,6 +61,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -71,9 +72,10 @@
             // 
             // pasaporteMascota
             // 
+            this.pasaporteMascota.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pasaporteMascota.Location = new System.Drawing.Point(827, 181);
             this.pasaporteMascota.Name = "pasaporteMascota";
-            this.pasaporteMascota.Size = new System.Drawing.Size(124, 20);
+            this.pasaporteMascota.Size = new System.Drawing.Size(124, 26);
             this.pasaporteMascota.TabIndex = 70;
             // 
             // label11
@@ -98,15 +100,16 @@
             // 
             // idMascota
             // 
+            this.idMascota.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.idMascota.Location = new System.Drawing.Point(438, 191);
             this.idMascota.Name = "idMascota";
-            this.idMascota.Size = new System.Drawing.Size(137, 20);
+            this.idMascota.Size = new System.Drawing.Size(137, 26);
             this.idMascota.TabIndex = 67;
             // 
             // nacimientoMascota
             // 
             this.nacimientoMascota.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nacimientoMascota.Location = new System.Drawing.Point(522, 398);
+            this.nacimientoMascota.Location = new System.Drawing.Point(626, 404);
             this.nacimientoMascota.Name = "nacimientoMascota";
             this.nacimientoMascota.Size = new System.Drawing.Size(300, 26);
             this.nacimientoMascota.TabIndex = 66;
@@ -144,7 +147,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(879, 516);
+            this.button5.Location = new System.Drawing.Point(885, 516);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 74);
             this.button5.TabIndex = 62;
@@ -153,37 +156,42 @@
             // 
             // razaMascota
             // 
+            this.razaMascota.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.razaMascota.Location = new System.Drawing.Point(827, 236);
             this.razaMascota.Name = "razaMascota";
-            this.razaMascota.Size = new System.Drawing.Size(124, 20);
+            this.razaMascota.Size = new System.Drawing.Size(124, 26);
             this.razaMascota.TabIndex = 59;
             // 
             // chipMascota
             // 
+            this.chipMascota.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chipMascota.Location = new System.Drawing.Point(438, 348);
             this.chipMascota.Name = "chipMascota";
-            this.chipMascota.Size = new System.Drawing.Size(137, 20);
+            this.chipMascota.Size = new System.Drawing.Size(137, 26);
             this.chipMascota.TabIndex = 58;
             // 
             // especieMascota
             // 
+            this.especieMascota.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.especieMascota.Location = new System.Drawing.Point(438, 308);
             this.especieMascota.Name = "especieMascota";
-            this.especieMascota.Size = new System.Drawing.Size(137, 20);
+            this.especieMascota.Size = new System.Drawing.Size(137, 26);
             this.especieMascota.TabIndex = 57;
             // 
             // sexoMascota
             // 
+            this.sexoMascota.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sexoMascota.Location = new System.Drawing.Point(438, 269);
             this.sexoMascota.Name = "sexoMascota";
-            this.sexoMascota.Size = new System.Drawing.Size(137, 20);
+            this.sexoMascota.Size = new System.Drawing.Size(137, 26);
             this.sexoMascota.TabIndex = 56;
             // 
             // nombreMascota
             // 
+            this.nombreMascota.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nombreMascota.Location = new System.Drawing.Point(438, 231);
             this.nombreMascota.Name = "nombreMascota";
-            this.nombreMascota.Size = new System.Drawing.Size(137, 20);
+            this.nombreMascota.Size = new System.Drawing.Size(137, 26);
             this.nombreMascota.TabIndex = 55;
             // 
             // label6
@@ -201,15 +209,16 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(228, 490);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(584, 100);
+            this.dataGridView2.Size = new System.Drawing.Size(87, 100);
             this.dataGridView2.TabIndex = 53;
             // 
             // comboBox1
             // 
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(827, 287);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(124, 21);
+            this.comboBox1.Size = new System.Drawing.Size(124, 28);
             this.comboBox1.TabIndex = 52;
             // 
             // label1
@@ -226,11 +235,11 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(330, 403);
+            this.label8.Location = new System.Drawing.Point(434, 409);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(186, 20);
+            this.label8.Size = new System.Drawing.Size(176, 20);
             this.label8.TabIndex = 50;
-            this.label8.Text = "Fecha de nacimiento: ";
+            this.label8.Text = "Fecha de nacimiento";
             // 
             // label7
             // 
@@ -368,11 +377,21 @@
             this.pictureBox1.TabIndex = 72;
             this.pictureBox1.TabStop = false;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(346, 490);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(497, 100);
+            this.textBox1.TabIndex = 74;
+            // 
             // Mascotas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
@@ -452,6 +471,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pictureBox1;
-
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
