@@ -28,6 +28,7 @@ namespace Veterinaria
         //guarda el resultado de la consultam, es un arrayList
         private MySqlDataReader resultado;
 
+        private int mascotasTotales;
 
         public event EventHandler StatusUpdated;
 
@@ -43,7 +44,10 @@ namespace Veterinaria
             nuevaVisita1.StatusUpdated += new EventHandler(addNuevaVisita);
             cargarMascota();
             autoCompletar();
-            
+            mascotasMaximas();
+           
+
+
 
 
         }
@@ -177,6 +181,20 @@ namespace Veterinaria
             deshabilitarDatosMascota();
         }
 
+        private void mascotasMaximas() {
+
+            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
+            conn = new MySqlConnection(connStr);
+            //abre la conexion
+            conn.Open();
+            comando = new MySqlCommand("Select count(*) from mascota", conn);
+            resultado = comando.ExecuteReader();
+            //datos.Load(resultado);
+            if (resultado.Read()) {
+                mascotasTotales = resultado.GetInt32("count(*)");
+            }
+        }
+
         //Publico para cuando estemos en el userControl de usuarios y clickeemos en su mascota la podemos cargar desde ahi 
         public void cargarMascota()
         {
@@ -286,9 +304,13 @@ namespace Veterinaria
             habilitarDatos();
         }
 
+        //Los dos siguientes metodos son para recorre a las mascotas, en el caso de que llegue a la ultima de todas empieza por la primer
+        //Mecanismo a mejorar puesto que si se eliminan mascotas quedan huecos vacios y va a seguir pasando por ello aun no habiendo nada
         private void button6_Click(object sender, EventArgs e)
         {
+            
             --id_Mascota;
+            if (id_Mascota > 1) { id_Mascota = mascotasTotales; }
             cargarMascota();
             ocultarVisitas();
         }
@@ -296,6 +318,7 @@ namespace Veterinaria
         private void button7_Click(object sender, EventArgs e)
         {
             ++id_Mascota;
+            if(id_Mascota> mascotasTotales) { id_Mascota = 1; }
             cargarMascota();
             ocultarVisitas();
         }
