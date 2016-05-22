@@ -41,6 +41,7 @@ namespace Veterinaria
             string propietario = newPropietarioPet.Text;
             string pasport = newPasportPet.Text;
             string foto = newFotoPet.Text;
+            
 
 
             connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
@@ -103,12 +104,25 @@ namespace Veterinaria
             this.SendToBack();
         }
 
+        //Si se quiere poner una imagen que tengas dentro del ordenador en vez de una de internet se utiliza esto
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Image files(*.jpg, *.jpeg) | *.jpg; *.jpeg)";
+            // antes de pasar el texto al textboxx sustituimos todos las \ por dos \\ ya que a la hora de hacer la insercion
+            // en la base de datos es un caracter reservado que se elimina y se necesita poner dos para que funcion
+            if (ofd.ShowDialog() == DialogResult.OK) {
+                newFotoPet.Text = ofd.FileName;
+                newFotoPet.Text = newFotoPet.Text.Replace("\\", "\\\\");
+            }
+        }
+
         //private void button1_Click(object sender, EventArgs e)
         //{
         //    this.Visible = false;
         //    this.Enabled = false;
         //    this.SendToBack();
-            
+
         //}
     }
 }

@@ -49,6 +49,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnSalirNewPet = new System.Windows.Forms.Button();
             this.btnAddNewPet = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -61,7 +62,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(298, 52);
             this.label9.TabIndex = 61;
-            this.label9.Text = "Nueva Mascot";
+            this.label9.Text = "Nueva Mascota";
             // 
             // newFotoPet
             // 
@@ -249,6 +250,17 @@
             this.btnAddNewPet.UseVisualStyleBackColor = false;
             this.btnAddNewPet.Click += new System.EventHandler(this.btnAddNewPet_Click);
             // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::Veterinaria.Properties.Resources.addfile;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Location = new System.Drawing.Point(581, 501);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(43, 37);
+            this.button1.TabIndex = 63;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Veterinaria.Properties.Resources.newPetIcon;
@@ -264,6 +276,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAddNewPet);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.pictureBox1);
@@ -319,5 +332,6 @@
         private System.Windows.Forms.Button btnSalirNewPet;
         private System.Windows.Forms.Button addNewPet;
         private System.Windows.Forms.Button btnAddNewPet;
+        private System.Windows.Forms.Button button1;
     }
 }

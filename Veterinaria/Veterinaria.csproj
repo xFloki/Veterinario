@@ -187,6 +187,7 @@
     <None Include="Resources\fondo1.jpg" />
     <None Include="Resources\gatu.png" />
     <None Include="Resources\amo.png" />
+    <None Include="Resources\addfile.png" />
     <Content Include="Resources\inicio.jpg" />
     <None Include="Resources\inicio1.jpg" />
     <None Include="Resources\inicio2.jpg" />

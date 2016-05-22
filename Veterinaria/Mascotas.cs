@@ -308,15 +308,16 @@ namespace Veterinaria
         //Mecanismo a mejorar puesto que si se eliminan mascotas quedan huecos vacios y va a seguir pasando por ello aun no habiendo nada
         private void button6_Click(object sender, EventArgs e)
         {
-            
+            mascotasMaximas();
             --id_Mascota;
-            if (id_Mascota > 1) { id_Mascota = mascotasTotales; }
+            if (id_Mascota < 1) { id_Mascota = mascotasTotales; }
             cargarMascota();
             ocultarVisitas();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
+            mascotasMaximas();
             ++id_Mascota;
             if(id_Mascota> mascotasTotales) { id_Mascota = 1; }
             cargarMascota();
