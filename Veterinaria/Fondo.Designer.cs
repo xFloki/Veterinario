@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Fondo));
             this.veterinariaNombre = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -61,7 +62,7 @@
             this.veterinariaNombre.Name = "veterinariaNombre";
             this.veterinariaNombre.Size = new System.Drawing.Size(646, 71);
             this.veterinariaNombre.TabIndex = 0;
-            this.veterinariaNombre.Text = "Veterinaria Canter";
+            this.veterinariaNombre.Text = "Veterinaria Cantera";
             // 
             // button1
             // 
@@ -283,8 +284,9 @@
             this.Controls.Add(this.admineUsers1);
             this.Controls.Add(this.nuevoUsuario1);
             this.Controls.Add(this.mascotas1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Fondo";
-            this.Text = "g";
+            this.Text = "Veterinaria Canteru";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
