@@ -43,12 +43,12 @@
             this.button5 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.mascotas1 = new Veterinaria.Mascotas();
             this.Clientes1 = new Veterinaria.Clientes();
             this.nuevoCliente1 = new Veterinaria.NuevoCliente();
             this.NuevaMascota1 = new Veterinaria.NuevaMascota();
             this.admineUsers1 = new Veterinaria.AdmineUsers();
             this.nuevoUsuario1 = new Veterinaria.NuevoUsuario();
+            this.mascotas1 = new Veterinaria.Mascotas();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -62,7 +62,7 @@
             this.veterinariaNombre.Name = "veterinariaNombre";
             this.veterinariaNombre.Size = new System.Drawing.Size(646, 71);
             this.veterinariaNombre.TabIndex = 0;
-            this.veterinariaNombre.Text = "Veterinaria Cantera";
+            this.veterinariaNombre.Text = "Veterinaria Canteru";
             // 
             // button1
             // 
@@ -205,16 +205,6 @@
             this.pictureBox2.TabIndex = 12;
             this.pictureBox2.TabStop = false;
             // 
-            // mascotas1
-            // 
-            this.mascotas1.BackColor = System.Drawing.Color.White;
-            this.mascotas1.Enabled = false;
-            this.mascotas1.Location = new System.Drawing.Point(518, 267);
-            this.mascotas1.Name = "mascotas1";
-            this.mascotas1.Size = new System.Drawing.Size(1062, 619);
-            this.mascotas1.TabIndex = 16;
-            this.mascotas1.Visible = false;
-            // 
             // Clientes1
             // 
             this.Clientes1.BackColor = System.Drawing.Color.White;
@@ -260,6 +250,16 @@
             this.nuevoUsuario1.Size = new System.Drawing.Size(1062, 619);
             this.nuevoUsuario1.TabIndex = 20;
             this.nuevoUsuario1.Visible = false;
+            // 
+            // mascotas1
+            // 
+            this.mascotas1.BackColor = System.Drawing.Color.White;
+            this.mascotas1.Enabled = false;
+            this.mascotas1.Location = new System.Drawing.Point(518, 267);
+            this.mascotas1.Name = "mascotas1";
+            this.mascotas1.Size = new System.Drawing.Size(1062, 619);
+            this.mascotas1.TabIndex = 16;
+            this.mascotas1.Visible = false;
             // 
             // Fondo
             // 

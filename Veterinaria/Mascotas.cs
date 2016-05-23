@@ -28,7 +28,8 @@ namespace Veterinaria
         //guarda el resultado de la consultam, es un arrayList
         private MySqlDataReader resultado;
 
-        private int mascotasTotales;
+        private int idMascotaMaximo;
+        private int idMascotaMinimo;
 
         public event EventHandler StatusUpdated;
 
@@ -45,6 +46,7 @@ namespace Veterinaria
             cargarMascota();
             autoCompletar();
             mascotasMaximas();
+            mascotasMinima();
            
 
 
@@ -181,17 +183,38 @@ namespace Veterinaria
             deshabilitarDatosMascota();
         }
 
-        private void mascotasMaximas() {
+        //calculo el id mayor de las mascotas
+        private void mascotasMaximas()
+        {
 
             connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
             conn = new MySqlConnection(connStr);
             //abre la conexion
             conn.Open();
-            comando = new MySqlCommand("Select count(*) from mascota", conn);
+            comando = new MySqlCommand("Select max(id) from mascota", conn);
             resultado = comando.ExecuteReader();
             //datos.Load(resultado);
-            if (resultado.Read()) {
-                mascotasTotales = resultado.GetInt32("count(*)");
+            if (resultado.Read())
+            {
+                idMascotaMaximo = resultado.GetInt32("max(id)");
+            }
+        }
+
+
+        //calculo el menor id de las mascotas
+        private void mascotasMinima()
+        {
+
+            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
+            conn = new MySqlConnection(connStr);
+            //abre la conexion
+            conn.Open();
+            comando = new MySqlCommand("Select min(id) from mascota", conn);
+            resultado = comando.ExecuteReader();
+            //datos.Load(resultado);
+            if (resultado.Read())
+            {
+                idMascotaMinimo = resultado.GetInt32("min(id)");
             }
         }
 
@@ -265,6 +288,20 @@ namespace Veterinaria
             razaMascota.ReadOnly = true;
         }
 
+        private void eliminarMascota() {
+            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
+            conn = new MySqlConnection(connStr);
+            //abre la conexion
+            conn.Open();
+
+
+            comando = new MySqlCommand("delete  from mascota where id = '" + idMascota.Text + "';", conn);
+            comando.ExecuteNonQuery();
+            MessageBox.Show("Cliente Eliminado Correctamente");
+            conn.Close();
+        
+        }
+
         private void  datosVisitas()
         {
             connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
@@ -275,6 +312,96 @@ namespace Veterinaria
             resultado = comando.ExecuteReader();
             resultado.Read();
             textBox1.Text = resultado.GetString("observaciones") ;
+
+        }
+
+        private void siguienteMascota() {
+            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
+            conn = new MySqlConnection(connStr);
+            //abre la conexion
+            conn.Open();
+            comando = new MySqlCommand("select * from mascota where id =  (select min(id) from mascota where id > "  + id_Mascota+")" , conn);
+            resultado = comando.ExecuteReader();
+            if (resultado.Read())
+            {
+                
+                string fotoMascotaUrl;
+                idMascota.Text = resultado.GetString("id");
+                idMascota.ReadOnly = true;
+                nombreMascota.Text = resultado.GetString("nombre");
+                sexoMascota.Text = resultado.GetString("sexo");
+                especieMascota.Text = resultado.GetString("especie");
+                chipMascota.Text = resultado.GetString("chip");
+                pasaporteMascota.Text = resultado.GetString("pasport");
+                pasaporteMascota.ReadOnly = true;
+                nacimientoMascota.Text = resultado.GetString("fecha_nacimiento");
+                razaMascota.Text = resultado.GetString("raza");
+                fotoMascotaUrl = resultado.GetString("foto");
+                propietarioMascota.Text = resultado.GetString("propietario");
+
+                //Para que el programa no se quede esperando al principio mientras descarga la primera imagen la de la mascota 
+                //la descargamos 
+                WebClient wc = new WebClient();
+                wc.Proxy = null;
+                byte[] bFile = wc.DownloadData((String)resultado.GetString("foto"));
+                MemoryStream ms = new MemoryStream(bFile);
+                Image img = Image.FromStream(ms);
+                fotoMascota.Image = img;
+                //fotoMascota.Load("http://fress.co/wp-content/uploads/2014/05/Animales-cansados-15.jpg");
+                //Scalamos la imagen para que quede bien en nuestro pictureBox
+                fotoMascota.SizeMode = PictureBoxSizeMode.Zoom;
+                deshabilitarDatosMascota();
+            }
+            resultado.Close();
+            conn.Close();
+            //dataGridView1.DataSource = datos;
+            cargarVisitas();
+
+        }
+
+        private void anteriorMascota()
+        {
+            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
+            conn = new MySqlConnection(connStr);
+            //abre la conexion
+            conn.Open();
+            comando = new MySqlCommand("select * from mascota where id =  (select max(id) from mascota where id <  " + id_Mascota + ")", conn);
+            resultado = comando.ExecuteReader();
+            //datos.Load(resultado);
+            if (resultado.Read())
+            {
+              
+                string fotoMascotaUrl;
+                idMascota.Text = resultado.GetString("id");
+                idMascota.ReadOnly = true;
+                nombreMascota.Text = resultado.GetString("nombre");
+                sexoMascota.Text = resultado.GetString("sexo");
+                especieMascota.Text = resultado.GetString("especie");
+                chipMascota.Text = resultado.GetString("chip");
+                pasaporteMascota.Text = resultado.GetString("pasport");
+                pasaporteMascota.ReadOnly = true;
+                nacimientoMascota.Text = resultado.GetString("fecha_nacimiento");
+                razaMascota.Text = resultado.GetString("raza");
+                fotoMascotaUrl = resultado.GetString("foto");
+                propietarioMascota.Text = resultado.GetString("propietario");
+
+                //Para que el programa no se quede esperando al principio mientras descarga la primera imagen la de la mascota 
+                //la descargamos 
+                WebClient wc = new WebClient();
+                wc.Proxy = null;
+                byte[] bFile = wc.DownloadData((String)resultado.GetString("foto"));
+                MemoryStream ms = new MemoryStream(bFile);
+                Image img = Image.FromStream(ms);
+                fotoMascota.Image = img;
+                //fotoMascota.Load("http://fress.co/wp-content/uploads/2014/05/Animales-cansados-15.jpg");
+                //Scalamos la imagen para que quede bien en nuestro pictureBox
+                fotoMascota.SizeMode = PictureBoxSizeMode.Zoom;
+                deshabilitarDatosMascota();
+            }
+            resultado.Close();
+            conn.Close();
+            //dataGridView1.DataSource = datos;
+            cargarVisitas();
 
         }
 
@@ -305,25 +432,37 @@ namespace Veterinaria
         }
 
         //Los dos siguientes metodos son para recorre a las mascotas, en el caso de que llegue a la ultima de todas empieza por la primer
-        //Mecanismo a mejorar puesto que si se eliminan mascotas quedan huecos vacios y va a seguir pasando por ello aun no habiendo nada
+        //Funciona  si hay huecos entre los id
+        //Boton de ir a la mascota anterior
         private void button6_Click(object sender, EventArgs e)
         {
+            //calculamos el id maximo y minimo de las mascotas
             mascotasMaximas();
-            --id_Mascota;
-            if (id_Mascota < 1) { id_Mascota = mascotasTotales; }
-            cargarMascota();
+            mascotasMinima();
+            //si estamos en la primera mascota y queremos ir hacia atras ponemos el id de la mascota ultima de este
+            //modo al ir a la mascota anterior iremos a la ultima 
+            if(id_Mascota <= idMascotaMinimo){ id_Mascota = idMascotaMaximo +1; }
+            anteriorMascota();
+            id_Mascota = int.Parse(idMascota.Text);
             ocultarVisitas();
         }
 
+        
+        //Boton de ir a la mascota siguiente
         private void button7_Click(object sender, EventArgs e)
         {
+            //calculamos el id maximo y minimo de las mascotas
             mascotasMaximas();
-            ++id_Mascota;
-            if(id_Mascota> mascotasTotales) { id_Mascota = 1; }
-            cargarMascota();
+            mascotasMinima();
+            //si estamos en la ultima mascota ponemos el ide en el minimo menos uno para que pasae al id del minimo con el boton
+            //de siguien
+            if (id_Mascota >= idMascotaMaximo) { id_Mascota = idMascotaMinimo -1; }
+            siguienteMascota();
+            id_Mascota = int.Parse(idMascota.Text);
             ocultarVisitas();
         }
 
+        
         private void button4_Click(object sender, EventArgs e)
         {
             NuevaMascota prueba = new NuevaMascota();
@@ -418,6 +557,32 @@ namespace Veterinaria
             nuevaVisita1.Enabled = true;
             nuevaVisita1.Visible = true;
             nuevaVisita1.BringToFront();
+        }
+
+        //Boton eliminar mascota
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("¿Esta seguro que desea elimar esta masctoa? Los datos no se podran recuperar",
+                    "OPERACION CRITICA", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            //si el usuario confirma que quiere eliminar la mascota
+            if (dr == DialogResult.Yes)
+            {
+                //eliminamos la masota
+                eliminarMascota();
+                //calculamos el maximo id y minimo para poder pasar a la siguiente mascota
+                mascotasMaximas();
+                mascotasMinima();
+                if (id_Mascota >= idMascotaMaximo) { id_Mascota = idMascotaMinimo -1; }
+                siguienteMascota();
+                cargarMascota();
+                ocultarVisitas();
+            }
+            else if (dr == DialogResult.No)
+            {
+
+                
+            }
         }
     }
 }

@@ -62,7 +62,7 @@
             this.Controls.Add(this.login1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "Veterinario Canteru";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

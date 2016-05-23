@@ -50,7 +50,9 @@ namespace Veterinaria
             try
             {
                 conn.Open();
-                sentencia_SQL = "select * from usuario";
+                // no mostramos las contraseñas, una vez dada la contraseña por defecto por el administrador los usuarios pueden cambiarla 
+                // y será anonima y encriptada en la bdd
+                sentencia_SQL = "select dni, login,  nombre, apellido, email, telefono, direccion, fecha_nacimiento from usuario";
                 comando = new MySqlCommand(sentencia_SQL, conn);
                 resultado = comando.ExecuteReader();
                 while (resultado.Read())
