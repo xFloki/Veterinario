@@ -54,6 +54,7 @@
     <Compile Include="AdmineUsers.Designer.cs">
       <DependentUpon>AdmineUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConexionBDD.cs" />
     <Compile Include="Fondo.cs">
       <SubType>Form</SubType>
     </Compile>

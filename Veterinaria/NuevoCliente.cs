@@ -15,17 +15,27 @@ namespace Veterinaria
     public partial class NuevoCliente : UserControl
     {
 
-        
+
         //parametros de la conexion
-        private string connStr;
+        private static string connStr = ConexionBDD.rutaConexion;
         //variable que maneja la conexion
-        private MySqlConnection conn;
+        private MySqlConnection conn = new MySqlConnection(connStr);
         //variable que sirve para crear la conexion
         private static MySqlCommand comando;
         private DataTable datos = new DataTable();
 
         public NuevoCliente()
         {
+            try
+            {
+                conn.Open();
+                conn.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
             InitializeComponent();
         }
 

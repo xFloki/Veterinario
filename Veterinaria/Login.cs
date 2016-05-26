@@ -18,6 +18,17 @@ namespace Veterinaria
 
         public Login()
         {
+            connStr = ConexionBDD.rutaConexion;
+            conn = new MySqlConnection(connStr);
+            try
+            {
+                conn.Open();              
+                conn.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
             InitializeComponent();
             Fillcombo();
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -45,9 +56,7 @@ namespace Veterinaria
 
         private void Fillcombo()
         {
-
-            connStr = "Server=localhost; Database=veterinario; Uid=root; Pwd=root ; Port=3306";
-            conn = new MySqlConnection(connStr);
+        
 
             try
             {
@@ -56,9 +65,6 @@ namespace Veterinaria
                 sentencia_SQL = "Select * from usuario where dni !=  'ADMIN';";
                 comando = new MySqlCommand(sentencia_SQL, conn);
                 resultado = comando.ExecuteReader();
-
-
-                //cierra la conexion
 
                 while (resultado.Read())
                 {
@@ -81,8 +87,7 @@ namespace Veterinaria
                 MessageBox.Show("Proporcione un Usuario y Contraseña Por Favor");
                 return;
             }
-            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
-            conn = new MySqlConnection(connStr);
+            
             //abre la conexion
             conn.Open();
             //Reseteamos el valor de Datatable para poder aceptar más de una vez(en la practica no tiene mucho sentido amenos que exista la posibilidad de deslogearse)

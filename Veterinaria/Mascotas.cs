@@ -18,9 +18,9 @@ namespace Veterinaria
     public partial class Mascotas : UserControl
     {
         //parametros de la conexion
-        private string connStr;
+        private static string connStr = ConexionBDD.rutaConexion;
         //variable que maneja la conexion
-        private MySqlConnection conn;
+        private MySqlConnection conn = new MySqlConnection(connStr);
         //consulta que quiero hacer a la base de datos
         private String sentencia_SQL;
         //variable que sirve para crear la conexion
@@ -41,6 +41,18 @@ namespace Veterinaria
 
         public Mascotas()
         {
+                 
+      
+            try
+            {
+                conn.Open();
+                conn.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
             InitializeComponent();
             nuevaVisita1.StatusUpdated += new EventHandler(addNuevaVisita);
             cargarMascota();
@@ -57,8 +69,6 @@ namespace Veterinaria
         public void addNuevaVisita(object sender, EventArgs e)
         {
 
-            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
-            conn = new MySqlConnection(connStr);
             //abre la conexion
             conn.Open();
 
@@ -71,6 +81,7 @@ namespace Veterinaria
             nuevaVisita1.Visible = false;
 
             cargarVisitas();
+            conn.Close();
         }
 
         //metodo public para pasarle al form el propietario actual
@@ -96,9 +107,6 @@ namespace Veterinaria
             AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
 
 
-            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
-            conn = new MySqlConnection(connStr);
-            //abre la conexion
             try
             {
                 conn.Open();
@@ -127,8 +135,6 @@ namespace Veterinaria
         private void cargarVisitas()
         {
 
-            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
-            conn = new MySqlConnection(connStr);
             //abre la conexion
             conn.Open();
             MySqlDataAdapter sda = new MySqlDataAdapter("Select fecha, motivo, id from visita where mascota = '" + idMascota.Text + "' order by fecha desc", conn);
@@ -167,8 +173,6 @@ namespace Veterinaria
             string especie_Mascota = especieMascota.Text;
             string fechaNacimiento_Mascota = nacimientoMascota.Value.ToString("yyyy-MM-dd");
 
-            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
-            conn = new MySqlConnection(connStr);
             //abre la conexion
             conn.Open();
 
@@ -187,17 +191,17 @@ namespace Veterinaria
         private void mascotasMaximas()
         {
 
-            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
-            conn = new MySqlConnection(connStr);
             //abre la conexion
             conn.Open();
             comando = new MySqlCommand("Select max(id) from mascota", conn);
             resultado = comando.ExecuteReader();
+            
             //datos.Load(resultado);
             if (resultado.Read())
             {
                 idMascotaMaximo = resultado.GetInt32("max(id)");
             }
+            conn.Close();
         }
 
 
@@ -205,8 +209,6 @@ namespace Veterinaria
         private void mascotasMinima()
         {
 
-            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
-            conn = new MySqlConnection(connStr);
             //abre la conexion
             conn.Open();
             comando = new MySqlCommand("Select min(id) from mascota", conn);
@@ -216,14 +218,14 @@ namespace Veterinaria
             {
                 idMascotaMinimo = resultado.GetInt32("min(id)");
             }
+            conn.Close();
         }
 
         //Publico para cuando estemos en el userControl de usuarios y clickeemos en su mascota la podemos cargar desde ahi 
         public void cargarMascota()
         {
 
-            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
-            conn = new MySqlConnection(connStr);
+
             //abre la conexion
             conn.Open();
             comando = new MySqlCommand("Select * from mascota where id = " + id_Mascota, conn);
@@ -289,8 +291,7 @@ namespace Veterinaria
         }
 
         private void eliminarMascota() {
-            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
-            conn = new MySqlConnection(connStr);
+
             //abre la conexion
             conn.Open();
 
@@ -304,20 +305,19 @@ namespace Veterinaria
 
         private void  datosVisitas()
         {
-            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
-            conn = new MySqlConnection(connStr);
+
             //abre la conexion
             conn.Open();
             comando = new MySqlCommand("Select observaciones from visita where id = '" + idObservacion + "'", conn);
             resultado = comando.ExecuteReader();
             resultado.Read();
             textBox1.Text = resultado.GetString("observaciones") ;
+            conn.Close();
 
         }
 
         private void siguienteMascota() {
-            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
-            conn = new MySqlConnection(connStr);
+ 
             //abre la conexion
             conn.Open();
             comando = new MySqlCommand("select * from mascota where id =  (select min(id) from mascota where id > "  + id_Mascota+")" , conn);
@@ -361,8 +361,7 @@ namespace Veterinaria
 
         private void anteriorMascota()
         {
-            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
-            conn = new MySqlConnection(connStr);
+
             //abre la conexion
             conn.Open();
             comando = new MySqlCommand("select * from mascota where id =  (select max(id) from mascota where id <  " + id_Mascota + ")", conn);
@@ -486,8 +485,7 @@ namespace Veterinaria
             if (textBox2 != null && !string.IsNullOrWhiteSpace(textBox2.Text))
             {
 
-                connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
-                conn = new MySqlConnection(connStr);
+
                 //abre la conexion
                 conn.Open();
                 comando = new MySqlCommand("Select * from mascota where pasport = '" + textBox2.Text + "'", conn);

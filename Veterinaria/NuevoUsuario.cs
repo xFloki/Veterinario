@@ -15,9 +15,9 @@ namespace Veterinaria
     public partial class NuevoUsuario : UserControl
     {
         //parametros de la conexion
-        private string connStr;
+        private static string connStr = ConexionBDD.rutaConexion;
         //variable que maneja la conexion
-        private MySqlConnection conn;
+        private MySqlConnection conn = new MySqlConnection(connStr);
         //variable que sirve para crear la conexion
         private static MySqlCommand comando;
         private DataTable datos = new DataTable();
@@ -25,6 +25,16 @@ namespace Veterinaria
 
         public NuevoUsuario()
         {
+            try
+            {
+                conn.Open();
+                conn.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
             InitializeComponent();
         }
 
@@ -80,6 +90,11 @@ namespace Veterinaria
         private void button2_Click(object sender, EventArgs e)
         {
             addUsuario();
+            MessageBox.Show("Empleado Añadido Correctamente");
+            this.Visible = false;
+            this.Enabled = false;
+            this.SendToBack();
+
         }
 
         private void button1_Click(object sender, EventArgs e)

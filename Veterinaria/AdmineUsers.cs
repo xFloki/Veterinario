@@ -32,6 +32,19 @@ namespace Veterinaria
 
         public AdmineUsers()
         {
+
+            try
+            {
+                connStr = ConexionBDD.rutaConexion;
+                conn = new MySqlConnection(connStr);
+                conn.Open();
+                conn.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
             InitializeComponent();
             autoCompletar();
             cargarUsuarios();
@@ -44,8 +57,6 @@ namespace Veterinaria
             AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
 
 
-            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
-            conn = new MySqlConnection(connStr);
             //abre la conexion
             try
             {
@@ -78,20 +89,18 @@ namespace Veterinaria
         {
 
 
-            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
-            conn = new MySqlConnection(connStr);
             //abre la conexion
             conn.Open();
 
             comando = new MySqlCommand("delete  from usuario where dni = '" + busquedaUsuario + "';", conn);
             comando.ExecuteNonQuery();
             MessageBox.Show("Usuario Eliminado Correctamente");
+            conn.Close();
         }
 
         private void cargarUsuarios()
         {
-            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
-            conn = new MySqlConnection(connStr);
+
             //abre la conexion
             conn.Open();
             //Ponemos en la consulta una condicion para que no se muestra el ADMINISTRADOR ya que no queremos que sea posible eliminarlo 
@@ -111,8 +120,7 @@ namespace Veterinaria
         //Cargar los datos del usuario que hemos seleccionado en el datagrid en los diferentes tebox de la pantalla 
         private void cargarUsuario()
         {
-            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
-            conn = new MySqlConnection(connStr);
+
             //abre la conexion
             conn.Open();
             comando = new MySqlCommand("Select * from usuario where dni = '" + busquedaUsuario + "'", conn);
@@ -133,10 +141,8 @@ namespace Veterinaria
                 textBox2.Text = resultado.GetString("login");
             }
             resultado.Close();
-
-
-           
-           
+            conn.Close();
+             
 
         }
 
@@ -181,8 +187,6 @@ namespace Veterinaria
             if (textBox1 != null && !string.IsNullOrWhiteSpace(textBox1.Text))
             {
 
-                connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
-                conn = new MySqlConnection(connStr);
                 //abre la conexion
                 conn.Open();
                 //Se puede realizar de esta manera con el adapter o coon un DataReader, me quedo con esta 

@@ -15,16 +15,15 @@ namespace Veterinaria
         
     {
         //parametros de la conexion
-        private string connStr;
+        private static string connStr = ConexionBDD.rutaConexion;
         //variable que maneja la conexion
-        private MySqlConnection conn;
+        private MySqlConnection conn = new MySqlConnection(connStr);
         //consulta que quiero hacer a la base de datos
         private String sentencia_SQL;
         //variable que sirve para crear la conexion
         private static MySqlCommand comando;
         //guarda el resultado de la consultam, es un arrayList
         private MySqlDataReader resultado;
-
         public string busquedaCliente = "SUUUUUUU";
         private DataTable datos = new DataTable();
         
@@ -36,7 +35,17 @@ namespace Veterinaria
 
         public Clientes()
         {
-        
+
+          
+            try
+            {
+                conn.Open();
+                conn.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
             InitializeComponent();
             autoCompletar();
             cargaClientes();
@@ -69,10 +78,7 @@ namespace Veterinaria
             textBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             textBox1.AutoCompleteSource = AutoCompleteSource.CustomSource;
             AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
-
-
-            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
-            conn = new MySqlConnection(connStr);
+     
             //abre la conexion
             try
             {
@@ -99,10 +105,47 @@ namespace Veterinaria
 
         }
 
+        private void cambiarDatosCliente()
+        {
+
+            //abre la conexion
+            
+            string nombre_Cliente = nombreCliente.Text;
+            string apellido_Cliente = apellidoCliente.Text;
+            string email_Cliente = emailCliente.Text;
+            string telefono_Cliente = telefonoCliente.Text;
+            string direccion_Cliente = direccionCliente.Text; 
+            string fechaNacimiento_Cliente = dateTimePicker1.Value.ToString("yyyy-MM-dd");
+
+            if (!string.IsNullOrEmpty(nombre_Cliente) && !string.IsNullOrEmpty(apellido_Cliente) && !string.IsNullOrEmpty(email_Cliente) && 
+                !string.IsNullOrEmpty(telefono_Cliente) && !string.IsNullOrEmpty(direccion_Cliente))
+            {
+                //abre la conexion
+                conn.Open();
+
+                comando = new MySqlCommand("SET SQL_SAFE_UPDATES = 0", conn);
+                comando.ExecuteNonQuery();
+                comando = new MySqlCommand("UPDATE cliente SET nombre='" + nombre_Cliente + "',apellido='" + apellido_Cliente + "',email='" + email_Cliente +
+                    "',telefono='" + telefono_Cliente + "',direccion='" + direccion_Cliente + "',fecha_nacimiento='" + fechaNacimiento_Cliente + "'where dni = '" + clienteDni.Text+"'" , conn);
+                comando.ExecuteNonQuery();
+                comando = new MySqlCommand("SET SQL_SAFE_UPDATES = 1", conn);
+                comando.ExecuteNonQuery();
+                conn.Close();
+            }
+            else {
+                cargarCliente();
+                MessageBox.Show("Debe introducir todos los datos del cliente");
+
+            }
+            
+            deshabilitarDatosCliente();
+            
+
+        }
+
         private void cargaClientes()
         {
-            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
-            conn = new MySqlConnection(connStr);
+
             //abre la conexion
             conn.Open();
             //Se puede realizar de esta manera con el adapter o coon un DataReader, me quedo con esta 
@@ -118,14 +161,13 @@ namespace Veterinaria
             //dataGridView1.Columns["Country"].DisplayIndex = 3;
             //dataGridView1.Columns["CompanyName"].DisplayIndex = 4;
             deshabilitarDatosCliente();
+            conn.Close();
 
         }
 
         //Carga los datos del cliente que has seleccionado en el DataGridView en los texbox del tabcontrol3, el que se encuentra junto a este
         public void cargarCliente()
         {
-            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
-            conn = new MySqlConnection(connStr);
             //abre la conexion
             conn.Open();
             comando = new MySqlCommand("Select * from cliente where dni = '" + busquedaCliente + "'", conn);
@@ -176,9 +218,6 @@ namespace Veterinaria
 
         private void eliminarCliente() {
           
-
-            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
-            conn = new MySqlConnection(connStr);
             //abre la conexion
             conn.Open();
 
@@ -236,8 +275,6 @@ namespace Veterinaria
             if (textBox1 != null && !string.IsNullOrWhiteSpace(textBox1.Text))
             {
 
-                connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
-                conn = new MySqlConnection(connStr);
                 //abre la conexion
                 conn.Open();
                 //Se puede realizar de esta manera con el adapter o coon un DataReader, me quedo con esta 
@@ -246,6 +283,7 @@ namespace Veterinaria
                 datos.Clear();
                 sda.Fill(datos);
                 dataGridView1.DataSource = datos;
+                conn.Close();
 
             }
             else
@@ -259,16 +297,7 @@ namespace Veterinaria
         {
           
             cargaClientes();
-            //connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
-            //conn = new MySqlConnection(connStr);
-            ////abre la conexion
-            //conn.Open();
-            ////Se puede realizar de esta manera con el adapter o coon un DataReader, me quedo con esta 
-            //MySqlDataAdapter sda = new MySqlDataAdapter("Select * from cliente", conn);
-            //conn.Close();
-            //datos.Clear();
-            //sda.Fill(datos);
-            //dataGridView1.DataSource = datos;
+  
         }
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -310,9 +339,10 @@ namespace Veterinaria
 
             if (dr == DialogResult.Yes)
             {
-                //cambiarDatosCliente();
+                cambiarDatosCliente();
                 saveButtonCliente.Hide();
                 deshabilitarDatosCliente();
+                cargaClientes();
             }
             else if (dr == DialogResult.No)
             {

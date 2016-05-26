@@ -15,9 +15,9 @@ namespace Veterinaria
     {
 
         //parametros de la conexion
-        private string connStr;
+        private static string connStr = ConexionBDD.rutaConexion;  
         //variable que maneja la conexion
-        private MySqlConnection conn;
+        private MySqlConnection conn = new MySqlConnection(connStr);
         //consulta que quiero hacer a la base de datos
         private String sentencia_SQL;
         //variable que sirve para crear la conexion
@@ -27,6 +27,17 @@ namespace Veterinaria
         public NuevaMascota()
         {
             InitializeComponent();
+
+            try
+            {
+                conn.Open();
+                conn.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
             cargaPropietarios();
         }
 
@@ -44,8 +55,7 @@ namespace Veterinaria
             
 
 
-            connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
-            conn = new MySqlConnection(connStr);
+ 
             //abre la conexion
             conn.Open();
 
@@ -62,8 +72,7 @@ namespace Veterinaria
         {
             try
             {
-                connStr = "Server=localhost; Database= veterinario; Uid=root; Pwd=root ; Port=3306";
-                conn = new MySqlConnection(connStr);
+
                 //abre la conexion
                 conn.Open();
                 sentencia_SQL = "select dni from cliente";
@@ -77,7 +86,7 @@ namespace Veterinaria
                     //newPropietarioPet.Text = sName;
 
                 }
-
+                conn.Close();
 
             }
             catch (Exception)
@@ -85,7 +94,7 @@ namespace Veterinaria
 
                 throw;
             }
-            conn.Close();
+          
         }
 
       
